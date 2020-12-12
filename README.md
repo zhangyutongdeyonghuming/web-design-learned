@@ -93,7 +93,7 @@
 
 
 
-![image-20201212141012064](C:\Users\zhangyutong\AppData\Roaming\Typora\typora-user-images\image-20201212141012064.png).
+![image-20201212141012064](https://raw.githubusercontent.com/zhangyutongdeyonghuming/web-design-learned/main/resources/image-20201212141012064.png).
 
 
 
