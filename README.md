@@ -149,10 +149,10 @@
 
 | 标签            | 定义       | 说明                                                  |
 | --------------- | ---------- | ----------------------------------------------------- |
-| <html></html>   | HTML标签   | 页面根标签                                            |
-| <head></head>   | 文档的头部 | 在head中必须设置title                                 |
-| <title></title> | 文档的标题 | 页面的标题                                            |
-| <body></body>   | 文档的主体 | 元素包含文档的所有内容,页面内容基本都是放到body里面的 |
+| `<html></html>`  | HTML标签   | 页面根标签                                            |
+| `<head></head>`   | 文档的头部 | 在head中必须设置title                                 |
+| `<title></title>` | 文档的标题 | 页面的标题                                            |
+| `<body></body>`   | 文档的主体 | 元素包含文档的所有内容,页面内容基本都是放到body里面的 |
 
 
 
@@ -790,7 +790,7 @@
 
 
 
-![image-20201214211246501](C:\Users\zyt15\AppData\Roaming\Typora\typora-user-images\image-20201214211246501.png).
+![image-20201214211246501](https://raw.githubusercontent.com/zhangyutongdeyonghuming/web-design-learned/main/resources/image-20201214211246501.png).
 
 
 
@@ -798,7 +798,7 @@
 
 > 特殊情况下,可以把多个单元格合并为一个单元格.
 
-![image-20201214211453389](C:\Users\zyt15\AppData\Roaming\Typora\typora-user-images\image-20201214211453389.png).
+![image-20201214211453389](https://raw.githubusercontent.com/zhangyutongdeyonghuming/web-design-learned/main/resources/image-20201214211453389.png).
 
 
 
