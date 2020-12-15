@@ -961,27 +961,242 @@
 
 
 
+#### 5.4.5 表单标签
+
+> 使用表单是为了方便**收集用户信息**.
+>
+> 在网页中需要与用户进行交互,收集用户资料,此时就需要表单.
+>
+> 表单由表单域/表单控件(表单元素)和提示信息构成
+
+![image-20201215203433022](https://raw.githubusercontent.com/zhangyutongdeyonghuming/web-design-learned/main/resources/image-20201215203433022.png).
+
+> 表单域是一个包含表单元素的区域,以`<form>`标签包含起来,提交时会将范围内的表单元素信息提交给服务器.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单域</title>
+</head>
+<body>
+    <form action="/action" method="get" name="name">
+
+    </form>
+</body>
+</html>
+```
 
 
 
+> 表单元素(表单控件)
+>
+> 在表单域中可以定义各种表单元素,这些元素就是允许用户在表单中输入或者选择的内容控件.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单元素</title>
+</head>
+<body>
+
+<form action="/req" method="get">
+    <!--    text 文本框 使用placeholder可以显示信息,maxlength指定值最大长度-->
+    用户名:<input type="text" placeholder="请输入用户名" maxlength="10"/> <br>
+    <!--    password 密码-->
+    密码:<input type="password"/> <br>
+    <!--    radio 单选按钮,单选按钮互斥只需指定同一个name属性即可,value只可以分男女-->
+    性别: 男<input type="radio" checked name="sex" value="男"/> 女<input type="radio" name="sex" value="女"/> <br>
+    <!--    checkbox 复选框-->
+    爱好: 
+    篮球 <input type="checkbox" checked name="hobby"/>
+    足球 <input type="checkbox" name="hobby"/>
+    长歌 <input type="checkbox" name="hobby"/>
+
+</form>
+</body>
+</html>
+
+```
+
+> `<input>`属性
 
 
 
+| 属性      | 属性值  | 描述                                                 |
+| --------- | ------- | ---------------------------------------------------- |
+| name      | 自定义  | 定义input元素的名称,后台可以拿到的key-value其中的key |
+| value     | 自定义  | 定义元素的值                                         |
+| checked   | checked | 定义加载时是否被选中                                 |
+| maxlength | 正整数  | 定义字段值最大长度                                   |
 
 
 
+> label标签为input元素定义标注
+>
+> 用于绑定一个表单元素,当点击label标签内的文本时,浏览器会自动将焦点转到或者选择对应的表单元素上,用来增加用户体验.
 
 
 
+```hrml
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>label</title>
+</head>
+<body>
+<form action="">
+	<!-- 点击用户名即可输入-->
+    <label for="username">用户名:</label>
+    <input id="username" type="text"/>
+    <br>
+    性别:
+    <!-- 点击汉字即可选择男/女-->
+    <input id="boy" type="radio" name="sex"><label for="boy">男</label>
+    <input id="girl" type="radio" name="sex"><label for="girl">女</label>
+</form>
+</body>
+</html>
+```
 
 
 
+> 下拉标签
+>
+> 适用场景:在页面中如果有多个选项让用户选择,并且想要节约页面空间时,我们可以使用`<select>`标签定义下拉列表
 
 
 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>select</title>
+</head>
+<body>
+    <form>
+        籍贯:
+        <select name="address" id="address">
+            <!-- selected默认选中-->
+            <option value="" selected>北京</option>
+            <option value="">河南</option>
+            <option value="">河北</option>
+            <option value="">南京</option>
+        </select>
+    </form>
+</body>
+</html>
+
+```
 
 
 
+> textarea标签
+>
+> 适用场景:个人简介/留言等大量文字场景
+
+```html
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>textarea</title>
+</head>
+<body>
+
+<form action="">
+    <textarea name="" id="" cols="30" rows="10">留言板...
+    </textarea>
+</form>
+
+</body>
+</html>
+```
+
+
+
+> 综合案例
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>综合案例:注册页面</title>
+</head>
+<body>
+<table>
+    <form action="">
+        <tr>
+            <td colspan="2">青春不常在,赶紧谈恋爱</td>
+        </tr>
+
+        <tr>
+            <td>性别</td>
+            <td>
+                <input type="radio" name="sex" id="boy"/> <label for="boy">男</label>
+                <input type="radio" name="sex" id="girl"/> <label for="girl">女</label>
+            </td>
+        </tr>
+
+        <tr>
+            <td>生日</td>
+            <td>
+                <select name="">
+                    <option value="" selected>请选择年</option>
+                </select>
+
+                <select name="">
+                    <option value="" selected>请选择月</option>
+                </select>
+
+                <select name="">
+                    <option value="" selected>请选择日</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td>所在地区</td>
+            <td>
+                <input type="text"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>喜欢类型</td>
+            <td>
+                <input id="charming" type="checkbox"/> <label for="charming">妩媚的</label>
+                <input id="pure" type="checkbox"/> <label for="pure">清纯的</label>
+                <input id="lovely" type="checkbox"/> <label for="lovely">可爱的</label>
+            </td>
+
+        </tr>
+
+        <tr>
+            <td>自我介绍</td>
+            <td>
+                <textarea name="" id="" cols="30" rows="10">
+
+                </textarea>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <input type="submit"/>
+            </td>
+        </tr>
+    </form>
+</table>
+</body>
+</html>
+
+```
 
 
 
