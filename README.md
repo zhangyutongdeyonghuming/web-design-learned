@@ -1200,15 +1200,229 @@
 
 
 
+### 6. CSS层叠样式表
+
+>**HTML的局限性**:HTML只关注内容的语义,并不关注内容的样式,虽然可以用做简单的样式,但是带来的是无尽的繁琐及臃肿
+>
+>**CSS**:是层叠样式表(Cascading Style Sheets)的简称,也是一种标记语言,主要用于设置HTML页面中的文本内容(字体/大小/对齐方式等)/图片的外形(宽高/边框/边距)及版面的布局和外观显示样式.CSS可以美化HTML,使页面更漂亮.
+>
+>**CSS语法规范**:CSS选择器 { 属性: 值;},如h1{color:red;}
 
 
 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css初体验</title>
+    <style>
+        /* css都写在style标签里 */
+        /* 给谁该样式{样式:样式值} */
+        p {
+            /* 修改字体颜色 */
+            color: red;
+            /* 修改字体大小 */
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        有点儿意思
+    </p>
+</body>
+</html>
+```
 
 
 
+#### 6.1 CSS选择器
+
+> 选择器的作用:用于选择标签.
 
 
 
+##### 6.1.1 标签选择器:
+
+> 标签名 { 属性: 属性值;}
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>标签选择器</title>
+    <style>
+        /* 选中页面里所有div */
+        div {
+            color: red;
+            font-size: 25px;
+        }
+        /* 选中页面里所有的p标签 */
+        p {
+            color: pink;
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    
+    <p>爱是一道光</p>
+    <div>绿到你发慌</div>
+    <div>来顶帽子吧</div>
+    <p>给你一顶帽子</p>
+</body>
+</html>
+```
+
+
+
+##### 6.1.2 类选择器
+
+> 选中所有class属性相同的标签, .class { 属性: 属性值;}
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类选择器</title>
+    <style>
+        /* 选择所有class等于red的元素 */
+        .red {
+            color: red;
+            font-size: 23px;
+        }
+    </style>
+</head>
+<body>
+    <ol>
+        <li class="red">red</li>
+        <li class="red">red</li>
+        <li class="red">red</li>
+        <li class="black">black</li>
+        <li class="black">black</li>
+    </ol>
+    <div class="red">我也是红色</div>
+</body>
+</html>
+```
+
+
+
+> 多类名
+>
+> 一个标签可以使用多个类名
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>案例</title>
+    <style>
+        /* 可以使用这个来给3个都设置属性 */
+        .box {
+            width: 200px;
+            height: 200px;
+        }
+        .red {
+            background-color: red;
+        }
+        .green {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="red box"></div>
+    <div class="green box"></div>
+    <div class="red box"></div>
+</body>
+</html>
+```
+
+
+
+##### 6.1.3 id选择器
+
+> id全页面唯一
+>
+> #id { 属性: 属性值;}
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>案例</title>
+    <style>
+        #green {
+            font-size: 50px;
+            color: green;
+        }
+        #red {
+            font-size: 12px;
+            color: red;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <ol>
+        <li id="green">张三</li>
+        <li id="red">李四</li>
+    </ol>
+</body>
+</html>
+```
+
+
+
+6.1.4 通配符选择器
+
+> 在CSS中,通配符使用*****号定义.
+>
+> *{ 属性: 属性值;}
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>*</title>
+    <style>
+        /* 选择所有标签 */
+        * {
+            margin: 0;
+            padding: 0;
+            color: brown;
+        }
+    </style>
+</head>
+<body>
+    <div>测试文本</div>
+</body>
+</html>
+```
+
+
+
+#### 6.2 CSS字体属性
+
+> CSS Fonts属性用于定义字体系列,大小,粗细和文本样式
+
+```html
+
+```
 
 
 
