@@ -16,14 +16,48 @@
             /* 可以设置多个字体 */
             font-family: Arial,'Microsoft YaHei';
         }
+        .bold {
+            /* font-weight默认是normal,
+            bold 同strong标签 
+            开发者常用数字表示粗细,没有单位.
+            */
+            font-weight: bold;
+            /* 等价font-weight: 700; */
+        }
+        .normal {
+            font-weight: normal;
+            /* 等价font-weight: 400; */
+        }
+        .italic {
+            /* 斜体 */
+            font-style: italic;
+        }
+        em {
+            /* 斜体变正常 */
+            font-style: normal;
+        }
+        #allStyle {
+            /*  
+                font-style: italic;
+                font-weight: 700;
+                font-size: 16px;
+                font-family: 'Microsoft YaHei'; 
+            */
+            /* 字体复合属性,将上述几行合为一行,顺序不能更改 */
+            /* font: font-style font-weight font-size font-family */
+            /* font: italic 700 16px 'Microsoft YaHei' */
+            /* font-style/font-weight可以缺省 */
+            font: 22px 'Microsoft YaHei'
+        }
     </style>
 </head>
 <body>
-    <h3>清平乐·画堂晨起</h3>
-    <p>画堂晨起，来报雪花坠。</p>
+    <h3 class="normal">清平乐·画堂晨起</h3>
+    <em>李白</em>
+    <p id="allStyle">画堂晨起，来报雪花坠。</p>
     <p>高卷帘栊看佳瑞，皓色远迷庭砌。</p>
-    <p>盛气光引炉烟，素草寒生玉佩。</p>
-    <p>应是天仙狂醉，乱把白云揉碎。</p>
+    <p class="italic">盛气光引炉烟，素草寒生玉佩。</p>
+    <p class="bold">应是天仙狂醉，乱把白云揉碎。</p>
     
 </body>
 </html>

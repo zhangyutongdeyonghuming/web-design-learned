@@ -1421,14 +1421,83 @@
 > CSS Fonts属性用于定义字体系列,大小,粗细和文本样式
 
 ```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字体属性系列</title>
+    <style>
+        h3 {
+            /* font-family可以设置字体. */
+            font-family: '微软雅黑';
+            /* font-size可以设置字体大小 */
+            font-size: 30px;
+        }
 
+        p {
+            /* 可以设置多个字体 */
+            font-family: Arial,'Microsoft YaHei';
+        }
+        .bold {
+            /* font-weight默认是normal,
+            bold 同strong标签 
+            开发者常用数字表示粗细,没有单位.
+            */
+            font-weight: bold;
+            /* 等价font-weight: 700; */
+        }
+        .normal {
+            font-weight: normal;
+            /* 等价font-weight: 400; */
+        }
+        .italic {
+            /* 斜体 */
+            font-style: italic;
+        }
+        em {
+            /* 斜体变正常 */
+            font-style: normal;
+        }
+        #allStyle {
+            /*  
+                font-style: italic;
+                font-weight: 700;
+                font-size: 16px;
+                font-family: 'Microsoft YaHei'; 
+            */
+            /* 字体复合属性,将上述几行合为一行,顺序不能更改 */
+            /* font: font-style font-weight font-size font-family */
+            /* font: italic 700 16px 'Microsoft YaHei' */
+            /* font-style/font-weight可以缺省 */
+            font: 22px 'Microsoft YaHei'
+        }
+    </style>
+</head>
+<body>
+    <!-- 浪漫的李白.-->
+    <h3 class="normal">清平乐·画堂晨起</h3>
+    <em>李白</em>
+    <p id="allStyle">画堂晨起，来报雪花坠。</p>
+    <p>高卷帘栊看佳瑞，皓色远迷庭砌。</p>
+    <p class="italic">盛气光引炉烟，素草寒生玉佩。</p>
+    <p class="bold">应是天仙狂醉，乱把白云揉碎。</p>
+    
+</body>
+</html>
 ```
 
 
 
+> 字体属性总结
 
-
-
+| 属性        | 表示         | 注意点                                                       |
+| ----------- | ------------ | ------------------------------------------------------------ |
+| font-style  | 字体样式     | 斜体是italic,不倾斜默认是normal                              |
+| font-weight | 字体粗细     | bold是700,不加粗是normal/400,一般用数字                      |
+| font-size   | 字体大小     | 通常以px为单位                                               |
+| font-family | 字体         | 默认以浏览器字体,使用时需注意带空格的加引号如'Microsoft YaHei' |
+| font        | 字体集合属性 | 格式: font: font-style font-weight font-size font-family ,前两个属性可以缺省,但顺序不可变 |
 
 
 
