@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文本属性</title>
+    <style>
+        div {
+            /* color 设置文本颜色 */
+            /* color: red; */
+            /* color: rgb(200,0,0); */
+
+            /* 十六进制最常用,因为需要ps吸取颜色. */
+            color: #ff0000;
+
+            /* left左对齐(default);right右对齐;center居中对齐 */
+            text-align: right;
+        }
+
+        a {
+            /* 可以取消a标签的下划线,最常用 */
+            text-decoration: none;
+        }
+
+        #line {
+            /* 下划线 */
+            /* text-decoration: underline; */
+
+            /* 上划线 */
+            /* text-decoration: overline; */
+
+            /* 删除线 */
+            text-decoration: line-through;
+        }
+
+        p {
+            /* 首行缩进,可以使用px/em,em指代当前元素一个文字大小 */
+            /* text-indent: 24px; */
+            text-indent: 2em;
+            /* 设置行高 */
+            line-height: 36px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>听说下雨天和巧克力更配哦</div>
+    <a href="http://baidu.com" target="_black">百度</a>
+    <div id="line">测试上下滑线</div>
+
+    <p>央视网消息（新闻联播）：国务院新闻办今天（12月17日）举行发布会，自然资源部、国家发展改革委等部门相关负责人在会上表示，“十三五”期间，我国生态保护修复工作成绩显著。生态保护修复法律制度加快完善，自然保护地体系建设稳步推进。截至目前，建立各类自然保护地1.18万个，约占我国陆域国土面积的18%。在12省份开展了国家公园试点，总面积超过22万平方公里。</p>
+    <p>国家还在重点生态功能区实施了25个山水林田湖草生态保护修复试点工程，有效解决了生态退化问题。此外，全国国土绿化“十三五”规划主要任务全面完成，森林覆盖率达到23.04%。</p>
+</body>
+
+</html>

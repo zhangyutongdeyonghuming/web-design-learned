@@ -1501,6 +1501,230 @@
 
 
 
+#### 6.3 CSS文本属性
+
+> CSS Text属性可以定义文本的外观,比如文本颜色,对齐,装饰文本,缩进,行间距.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文本属性</title>
+    <style>
+        div {
+            /* color 设置文本颜色 */
+            /* color: red; */
+            /* color: rgb(200,0,0); */
+
+            /* 十六进制最常用,因为需要ps吸取颜色. */
+            color: #ff0000;
+
+            /* left左对齐(default);right右对齐;center居中对齐 */
+            text-align: right;
+        }
+
+        a {
+            /* 可以取消a标签的下划线,最常用 */
+            text-decoration: none;
+        }
+
+        #line {
+            /* 下划线 */
+            /* text-decoration: underline; */
+
+            /* 上划线 */
+            /* text-decoration: overline; */
+
+            /* 删除线 */
+            text-decoration: line-through;
+        }
+
+        p {
+            /* 首行缩进,可以使用px/em,em指代当前元素一个文字大小 */
+            /* text-indent: 24px; */
+            text-indent: 2em;
+            /* 设置行高 */
+            line-height: 36px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>听说下雨天和巧克力更配哦</div>
+    <a href="http://baidu.com" target="_black">百度</a>
+    <div id="line">测试上下滑线</div>
+
+    <p>央视网消息（新闻联播）：国务院新闻办今天（12月17日）举行发布会，自然资源部、国家发展改革委等部门相关负责人在会上表示，“十三五”期间，我国生态保护修复工作成绩显著。生态保护修复法律制度加快完善，自然保护地体系建设稳步推进。截至目前，建立各类自然保护地1.18万个，约占我国陆域国土面积的18%。在12省份开展了国家公园试点，总面积超过22万平方公里。</p>
+    <p>国家还在重点生态功能区实施了25个山水林田湖草生态保护修复试点工程，有效解决了生态退化问题。此外，全国国土绿化“十三五”规划主要任务全面完成，森林覆盖率达到23.04%。</p>
+</body>
+
+</html>
+```
+
+
+
+| 属性            | 表示     | 注意点                                                       |
+| --------------- | -------- | ------------------------------------------------------------ |
+| color           | 文本颜色 | 通常用#十六进制表示                                          |
+| text-align      | 文本对齐 | 设定文字对齐方式                                             |
+| text-indent     | 文本缩进 | 通常缩进两个字为:text-indent: 2em;                           |
+| text-decoration | 文本修饰 | a标签可以使用text-decoration: none;来取消下划线;none 默认,没有装饰线;underline 下划线;overline 上划线;line-through 删除线. |
+| line-height     | 行高     | 控制行之间的距离,行高计算: 上间距 + 下间距 + 文字大小.       |
+
+
+
+#### 6.4 样式表引入方式
+
+| 样式表     | 使用情况                                         | 控制范围     |
+| ---------- | ------------------------------------------------ | ------------ |
+| 行内样式表 | 书写方便,但结构样式混乱,使用较少                 | 控制一个标签 |
+| 内部样式表 | 部分结构和样式相分离,但没有彻底分离,使用较多     | 控制一个页面 |
+| 外部样式表 | 完全实现结构与样式分离,是封装组件的基础,使用最多 | 控制多个页面 |
+
+
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css引入方式</title>
+
+    <!-- 外联样式表 -->
+    <link rel="stylesheet" href="02-css引入方式.css">
+
+    <!-- 内部样式表 -->
+    <style>
+        div {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div>所谓新闻</div>
+    
+
+    <!-- 行内样式/内联样式 -->
+    <p style="line-height: 36px;text-indent: 2em">
+        中新社巴黎12月17日电 (记者 李洋)法国总统马克龙当地时间17日晚在确诊感染新冠病毒后首次露面。法国官方当晚披露了马克龙感染病毒的具体症状，引发外界高度关注。
+    </p>
+
+    <p id="pink">粉红的回忆</p>
+</body>
+</html>
+```
+
+
+
+#### 6.5 综合案例
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中国新闻网</title>
+    <!-- 引入外部样式表 -->
+    <link rel="stylesheet" href="./03-css综合案例.css">
+</head>
+
+<body>
+    <h1>马克龙确诊感染后首次露面 法国官方披露具体症状
+    </h1>
+
+    <div class="author">
+        2020年12月18日 06:00　来源：<a target="_black" href="http://www.chinanews.com/">中国新闻网</a>
+    </div>
+
+    <p>
+        中新社巴黎12月17日电 (记者 李洋)法国总统马克龙当地时间17日晚在确诊感染新冠病毒后首次露面。法国官方当晚披露了马克龙感染病毒的具体症状，引发外界高度关注。
+    </p>
+    <div class="images">
+        <img alt="马克龙" src="http://i2.chinanews.com/simg/cmshd/2020/12/18/a52b9560ee07439598b304936f5a6329.jpg">
+    </div>
+
+    <p>
+        马克龙当晚通过视频连线的方式出席人道主义援助政策会议并发表十多分钟的讲话。法国外长勒德里昂等与会者在法国外交部的会议主会场聆听马克龙的视频讲话。
+    </p>
+
+    <p>马克龙在讲话期间偶尔查看讲话文稿，思路仍然清晰，吐字清楚。他讲话全程都戴着防护口罩，也没有戴领带。他在讲话中没有具体谈及个人情况。法国多家电视台对马克龙的讲话进行了直播。</p>
+    <div class="images">
+        <img src="http://i2.chinanews.com/simg/cmshd/2020/12/18/b98dc14042954fc5bbc131cb1c6af4fc.jpg" alt="">
+    </div>
+    <p>
+       法国政府发言人阿塔尔当晚代表官方对外披露马克龙感染病毒的具体症状。他说，马克龙具有这种疾病的“真实症状”，即“咳嗽和严重疲劳”。阿塔尔表示，马克龙目前仍然可以通过视频会议的方式继续参加很多活动。
+    </p>  
+
+    <p>
+       马克龙当天通过新冠病毒检测确诊感染。阿塔尔稍早前透露，他16日深夜感到有症状，立即进行自我隔离。他随后接受病毒检测，结果为阳性。阿塔尔确认马克龙遵守社交距离的相关规定，并表示他将远程办公。
+    </p>
+
+    <p>
+        法国总理卡斯泰、国民议会议长费朗等法国政要因16日曾与马克龙会面并共进晚餐而接受隔离。卡斯泰已取消了17日的公开行程，也改为远程办公。
+    </p>
+    
+    <p>
+        记者当天前往法国总统府爱丽舍宫和总理府马提尼翁宫查看情况。两处地点从外部看都运转如常。爱丽舍宫外的警力略有增加。在爱丽舍宫外聚集了大批媒体记者，多名电视主持人在做现场连线；马提尼翁宫只有两名记者在蹲守。
+    </p>
+
+    <p>
+        马克龙最近两周行程安排紧凑，过去三天中每天都有多场活动。最近曾与马克龙在相关场合会面的西班牙首相桑切斯、葡萄牙总理科斯塔、比利时首相德克罗、欧洲理事会主席米歇尔等政要17日均接受隔离。(完)
+    </p>
+
+<div class="author editor">【编辑:田博川】</div>
+</body>
+
+</html>
+```
+
+```css
+
+h1 {
+    font-weight: 500;
+}
+
+p {
+    line-height: 40px;
+    text-indent: 2em;
+    font-size: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #a3a3a3;
+}
+
+.author {
+    color: #666666;
+    font-size: 14px;
+}
+
+.editor {
+    text-align: right;
+}
+
+.images {
+    text-align: center;
+}
+```
+
+
+
+
+
+
+
+
+
+
+
 
 
 
