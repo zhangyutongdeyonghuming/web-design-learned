@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 子选择器,写法: 父>子 */
+        div>a {
+            color: brown;
+            text-decoration: none;
+        }
+
+        .nav>a {
+            color: bisque;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <a href="http://baidu.com">儿子</a>
+    </div>
+
+    <div>
+        <p><a href="http://baidu.com">孙子</a></p>
+    </div>
+
+    <div class="nav">
+        <a href="#">大肘子</a>
+        <ul>
+            <li><a href="#">baidu</a></li>
+            <li><a href="#">baidu</a></li>
+        </ul>
+    </div>
+
+
+</body>
+
+</html>

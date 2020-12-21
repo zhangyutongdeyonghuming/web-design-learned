@@ -1238,7 +1238,7 @@
 
 
 
-#### 6.1 CSS选择器
+#### 6.1 CSS基础选择器
 
 > 选择器的作用:用于选择标签.
 
@@ -1714,6 +1714,221 @@ a {
     text-align: center;
 }
 ```
+
+
+
+#### 6.6 CSS复合选择器
+
+>在CSS中可以根据选择器类型分为基础选择器和复合选择器,复合选择器是建立在基础选择器之上,对基本选择器进行组合形成的
+>
+>- 复合选择器可以更准确的/更高效的选择目标元素;
+>- 复合选择器是由两个或多个基础选择器,通过不同的方式组合而成的;
+>- 常用的复合选择器包括: 后代选择器/子选择器/并集选择器/伪类选择器等
+
+
+
+##### 6.6.1 后代选择器
+
+> 后代选择器又称包含选择器, 可以选择父元素里面的子元素 .其写法就是把外层标签写在前面, 内层标签写在后面, 中间用空格分隔. 当标签发生嵌套时, 内层标签就成为外层标签的后代.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 后代选择器: 父标签 空格 子标签 {} */
+        ol li {
+            color: green;
+        }
+
+        ul li {
+            /* 去除无序列表的圆圈 */
+            list-style: none;
+        }
+
+        /* 可以用类/id选择器来选择,可以是任意基础选择器 */
+        .blue li {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <ol>
+        <li>我是ol的孩子</li>
+        <li>我是ol的孩子</li>
+        <li>我是ol的孩子</li>
+    </ol>
+
+    <ol class="blue">
+        <li>我是ol的孩子</li>
+        <li>我是ol的孩子</li>
+        <li>我是ol的孩子</li>
+    </ol>
+
+    <ul>
+        <li>我是ul的孩子</li>
+        <li>我是ul的孩子</li>
+        <li>我是ul的孩子</li>
+    </ul>
+</body>
+
+</html>
+```
+
+
+
+##### 6.6.2 子选择器
+
+> 子选择器只能选择作为某元素的最近一级子元素.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 子选择器,写法: 父>子 */
+        div>a {
+            color: brown;
+            text-decoration: none;
+        }
+
+        .nav>a {
+            color: bisque;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <a href="http://baidu.com">儿子</a>
+    </div>
+
+    <div>
+        <p><a href="http://baidu.com">孙子</a></p>
+    </div>
+
+    <div class="nav">
+        <a href="#">大肘子</a>
+        <ul>
+            <li><a href="#">baidu</a></li>
+            <li><a href="#">baidu</a></li>
+        </ul>
+    </div>
+
+
+</body>
+
+</html>
+```
+
+
+
+##### 6.6.3 并集选择器
+
+> 并集选择器可以选择多组标签, 同时为他们定义相同样式, 通常用于集体声明
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 使用逗号分隔多个选择,声明为并集选择器 */
+        div,
+        p,
+        ul li {
+            color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div>胸大</div>
+    <p>熊二</p>
+    <ul>
+        <li>小猪佩奇</li>
+        <li>猪八</li>
+        <li>猪吗</li>
+    </ul>
+</body>
+
+</html>
+```
+
+
+
+##### 6.6.4 伪类选择器
+
+> 伪类选择器用于向某些选择器添加特殊的效果, 比如给链接添加特殊效果, 或选择第一个/第n个元素.
+>
+> 书写特点: 用冒号表示
+
+
+
+###### 6.6.4.1 链接伪类选择器
+
+>a:link 选择所有未被访问的链接;
+>
+>a:visited 选择所有已被访问的链接;
+>
+>a:hover 选择鼠标指针位于其上的链接;
+>
+>a:active 选择活动链接,鼠标按下未弹起
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 选中没有访问过得a标签 */
+        a:link {
+            text-decoration: none;
+            color: #333;
+        }
+
+        /* 已经访问过得链接 */
+        a:visited {
+            color: orange;
+        }
+
+        /* 鼠标滑过a标签 */
+        a:hover {
+            color: red;
+        }
+
+        /* 鼠标正在点击,没有松开时 */
+        a:active {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#" target="_black">百度</a>
+</body>
+
+</html>
+```
+
+
+
+
 
 
 

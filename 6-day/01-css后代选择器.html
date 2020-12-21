@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 后代选择器: 父标签 空格 子标签 {} */
+        ol li {
+            color: green;
+        }
+
+        ul li {
+            /* 去除无序列表的圆圈 */
+            list-style: none;
+        }
+
+        /* 可以用类/id选择器来选择,可以是任意基础选择器 */
+        .blue li {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <ol>
+        <li>我是ol的孩子</li>
+        <li>我是ol的孩子</li>
+        <li>我是ol的孩子</li>
+    </ol>
+
+    <ol class="blue">
+        <li>我是ol的孩子</li>
+        <li>我是ol的孩子</li>
+        <li>我是ol的孩子</li>
+    </ol>
+
+    <ul>
+        <li>我是ul的孩子</li>
+        <li>我是ul的孩子</li>
+        <li>我是ul的孩子</li>
+    </ul>
+</body>
+
+</html>
