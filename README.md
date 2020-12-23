@@ -1886,6 +1886,12 @@ a {
 >a:hover 选择鼠标指针位于其上的链接;
 >
 >a:active 选择活动链接,鼠标按下未弹起
+>
+>注意事项:
+>
+>为了确保伪类选择器能够生效, 声明的顺序最好不要颠倒, 按照link-visited-hover-active的顺序来声明.
+>
+>因为a标签自带样式,所以在开发时需要给链接单独指定样式.
 
 ```html
 <!DOCTYPE html>
@@ -1896,6 +1902,7 @@ a {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        /* 为了确保伪类选择器能够生效, 声明的顺序最好不要颠倒, 按照link-visited-hover-active的顺序来声明.*/
         /* 选中没有访问过得a标签 */
         a:link {
             text-decoration: none;
@@ -1928,11 +1935,46 @@ a {
 
 
 
+###### 6.6.4.2 :focus伪类选择器
+
+> 选择获得焦点的表单元素.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 选择获得焦点的表单元素 */
+        input:focus {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" />
+    <input type="text" />
+    <input type="text" />
+</body>
+
+</html>
+```
 
 
 
+##### 6.6.5 复合选择器总结
 
-
+| 选择器           | 作用                           | 用法                              |
+| ---------------- | ------------------------------ | --------------------------------- |
+| 后代选择器       | 选择后代元素                   | 使用空格隔开,如div a              |
+| 子代选择器       | 选择最近一级元素               | 使用大于号隔开,如div>a            |
+| 并集选择器       | 选择某些相同样式的元素集体声明 | 使用逗号隔开,如div,a              |
+| 链接伪类选择器   | 选择不同状态的a标签链接        | a:link/a:visited/a:hover/a:active |
+| :focus伪类选择器 | 选择获得焦点的表单元素         | input:focus                       |
 
 
 
