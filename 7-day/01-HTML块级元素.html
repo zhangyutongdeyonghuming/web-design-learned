@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>块级元素</title>
+    <style>
+        div {
+            /* 不设置宽度 则默认使用父标签的宽度 */
+            /* width: 200px; */
+            height: 400px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <div>比较霸道,独占一行</div>
+    瑟瑟发抖
+    <!-- 这里会有问题 -->
+    <p>
+    <div>123</div>
+    </p>
+</body>
+
+</html>

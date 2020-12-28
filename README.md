@@ -1980,6 +1980,296 @@ a {
 
 
 
+#### 6.7 CSS的元素显示模式
+
+> 网页标签繁多, 在不同的地方会用到不同类型的标签, 了解他们的特点可以更好的布局我们的网页.
+>
+> 元素显示模式就是元素以什么方式进行显示, 比如div 自己占一行, 比如一行可以放多个span
+>
+> HTML一般分为**块元素**和**行内元素**
+
+
+
+##### 6.7.1 块级元素
+
+> 常见块级元素有h1-h6/p/div/ul/ol/li等, 其中div是最典型的块级元素
+>
+> 块级元素的特点是:
+>
+> 1. 独占一行;
+> 2. 高度/宽度/外边距/内边距可以控制;
+> 3. 宽度默认是容器的100%;
+> 4. 是一个容器及盒子, 里面可以放行内或块级元素
+> 5. 文字类标签不能使用块级元素, 如p标签/h1-h6标签都是存放文字的, 里面不能放块级元素
+
+
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>块级元素</title>
+    <style>
+        div {
+            /* 不设置宽度 则默认使用父标签的宽度 */
+            /* width: 200px; */
+            height: 400px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <div>比较霸道,独占一行</div>
+    瑟瑟发抖
+    <!-- 这里会有问题 -->
+    <p>
+    <div>123</div>
+    </p>
+</body>
+
+</html>
+```
+
+
+
+
+
+##### 6.7.2 行内元素
+
+> 常见的行内元素有a/strong/b/em/i/del/s/ins/u/span等, 其中span是最典型的行内元素,有的地方也称其为内联元素.
+>
+> 特点:
+>
+> 1. 相邻行内元素在一行上, 一行可以显示多个;
+> 2. 高/宽直接设置是无效的;
+> 3. 默认宽度就是他本身内容的宽度;
+> 4. 行内元素只能容纳文本或其他行内元素(a标签内不允许在套a标签, 但是a可以放块级元素)
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <span>老师好</span>
+    <strong>好老师</strong>
+</body>
+
+</html>
+```
+
+
+
+##### 6.7.3 行内块元素
+
+> 在行内元素中有几个特殊的标签----img/input/td, 他们同时具有块元素和行内元素的特点.
+>
+> 特点:
+>
+> 1. 和相邻行内元素在一行上,但是他们之间会有空白缝隙. 一行可以显示多个(行内元素特点);
+> 2. 默认宽度就是本身内容的宽度(行内元素特点);
+> 3. 高度, 行高, 外边距/内边距都可以控制(块级元素特点).
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            /* 可以设置高度/宽度 */
+            width: 250px;
+            height: 30px
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 一行可以显示多个,默认宽度为本身内容的宽度 -->
+    <input type="text">
+    <input type="text">
+</body>
+
+</html>
+```
+
+
+
+##### 6.7.4 元素显示模式总结
+
+
+
+| 元素模式   | 元素排列               | 设置样式           | 默认宽度       | 包含                   |
+| ---------- | ---------------------- | ------------------ | -------------- | ---------------------- |
+| 块级元素   | 一行只能放一个块级元素 | 可以设置宽高       | 容器的100%     | 可以包含任何标签       |
+| 行内元素   | 一行可以放多个行内元素 | 不可以直接设置宽高 | 本身内容的宽度 | 容纳文本或其他行内元素 |
+| 行内块元素 | 一行放多个行内块元素   | 可以设置宽高       | 本身内容的宽度 |                        |
+
+
+
+#### 6.8 CSS的元素显示模式转换
+
+> 特殊情况下,我们需要元素模式的转换, 简单来说就是一个模式的元素需要另外一种模式的特性.
+>
+> 转为块元素: display: block; 
+>
+> 转为行内元素: display: inline;
+>
+> 转为行内块元素: display: inline-block;
+
+
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a {
+            width: 150px;
+            height: 50px;
+            background-color: red;
+            /* 把行内元素转为块元素 */
+            display: block;
+        }
+
+        div {
+            /* 行内元素 高/宽失效了 */
+            width: 300px;
+            height: 100px;
+            background-color: pink;
+            /* 把块级元素转换为行内元素 */
+            display: inline;
+        }
+
+        span {
+            width: 200px;
+            height: 30px;
+            background-color: blue;
+            /* 把行内元素转为行内块 */
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#">点击这里</a>
+
+    <div>我是块级元素</div>
+    <div>我是块级元素</div>
+
+    <span>我是行内元素</span>
+</body>
+
+</html>
+```
+
+
+
+#### 6.9 元素模式案例
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小米侧边栏丐版</title>
+    <style>
+        a {
+            /* 转换为块级元素 */
+            display: block;
+            width: 234px;
+            height: 54px;
+            /* 取消下划线 */
+            text-decoration: none;
+            color: #fff;
+            background-color: gray;
+            /* 首行缩进2个字符 */
+            text-indent: 2em;
+            font-size: 14px;
+            /* 由于css没提供垂直居中代码,所以使用小技巧实现 */
+            line-height: 54px
+        }
+
+        /* 设置a标签滑过样式 */
+        a:hover {
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#">手机 电话卡</a>
+    <a href="#">电视 盒子</a>
+    <a href="#">笔记本 平板</a>
+    <a href="#">出行 穿戴</a>
+    <a href="#">智能路由器</a>
+    <a href="#">健康 儿童</a>
+    <a href="#">耳机 音响</a>
+</body>
+
+</html>
+```
+
+
+
+#### 6.10 CSS背景
+
+##### 6.10.1 背景图片
+
+> background-image  属性描述了元素的背景图像. 实际开发常见于logo或者是一些装饰性的小图片或者是超大的背景图片, 优点是非常便于控制位置. 精灵图也是一种运用场景.默认为none
+
+
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            height: 300px;
+            width: 300px;
+            background-color: gray;
+            /* 设置图片背景 , 默认none*/
+            background-image: url(../resources/logo.png);
+            /* 设置背景不平铺 */
+            background-repeat: no-repeat;
+            /* 设置方位,如果是名词则没有顺序 */
+            background-position: center top;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>
+```
+
+
+
 
 
 
