@@ -2270,6 +2270,408 @@ a {
 
 
 
+> 背景图片方位参数也可以是具体值
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 430px;
+            height: 161px;
+            background-color: gray;
+            background-repeat: no-repeat;
+            background-image: url(../resources/logo.png);
+            /* 可以指定固定的数值加单位来指定偏移量,顺序是先x轴后y轴,如果不指定第二个则默认垂直居中 */
+            background-position: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>
+```
+
+
+
+> 也可以进行混合使用
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url(../resources/725341110883827.jpg);
+            /* 也可以使用混合单位,也是先x,后y */
+            background-position: center 40px;
+        }
+    </style>
+</head>
+
+<body>
+</body>
+
+</html>
+```
+
+
+
+##### 6.10.2 背景图片固定
+
+> background-attachment 属性设置背景图片是否固定或者随着页面的其余部分滚动, 可以做视差滚动的效果
+>
+> background-attachment: scroll | fixed
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url(../resources/725341110883827.jpg);
+            background-position: center 40px;
+            background-repeat: no-repeat;
+            /* 固定背景图片, 不随下拉而滚动, 默认是scroll(滚动) */
+            background-attachment: fixed;
+        }
+
+        p {
+            color: #fff;
+            font-size: 35px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>提莫一米五</p>
+    <p>提莫一米五</p>
+    <p>提莫一米五</p>
+    <p>提莫一米五</p>
+    <p>提莫一米五</p>
+    <p>提莫一米五</p>
+    <p>提莫一米五</p>
+    <p>提莫一米五</p>
+    <p>提莫一米五</p>
+    <p>提莫一米五</p>
+    <p>提莫一米五</p>
+    <p>提莫一米五</p>
+    <p>提莫一米五</p>
+    <p>提莫一米五</p>
+    <p>提莫一米五</p>
+    <p>提莫一米五</p>
+    <p>提莫一米五</p>
+    <p>提莫一米五</p>
+    <p>提莫一米五</p>
+    <p>提莫一米五</p>
+    <p>提莫一米五</p>
+    <p>提莫一米五</p>
+    <p>提莫一米五</p>
+    <p>提莫一米五</p>
+    <p>提莫一米五</p>
+    <p>提莫一米五</p>
+    <p>提莫一米五</p>
+    <p>提莫一米五</p>
+    <p>提莫一米五</p>
+    <p>提莫一米五</p>
+</body>
+
+</html>
+```
+
+
+
+##### 6.10.3 背景的复合写法
+
+> 为了简化背景属性的代码, 我们可以简写在一个background中, background没有特定的书写顺序.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            /* background-image: url(../resources/725341110883827.jpg); */
+            /* background-position: center 40px; */
+            /* background-repeat: no-repeat; */
+            /* 固定背景图片, 不随下拉而滚动, 默认是scroll(滚动) */
+            /* background-attachment: fixed; */
+
+            /* 简化代码 */
+            background: url(../resources/725341110883827.jpg) no-repeat fixed center 40px;
+        }
+
+        p {
+            color: #fff;
+            font-size: 35px;
+        }
+    </style>
+</head>
+
+<body>
+</body>
+
+</html>
+```
+
+
+
+##### 6.10.4 背景色半透明
+
+> background: rgba(0,0,0,0.3) 可以设置背景色半透明, a是alpha透明度, 取值范围在0-1之间
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            height: 400px;
+            width: 400px;
+            background: rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <div>123</div>
+</body>
+
+</html>
+```
+
+
+
+##### 6.10.4 背景总结
+
+| 属性                  | 作用     | 值                                 |
+| --------------------- | -------- | ---------------------------------- |
+| background-color      | 背景颜色 | 预定义的颜色值/十六进制/RGB代码    |
+| background-image      | 背景图片 | url(路径)                          |
+| background-repeat     | 背景平铺 | repeat/no-repeat/repeat-x/repeat-y |
+| background-position   | 背景位置 | length/position                    |
+| background-attachment | 背景固定 | scroll(滚动)/fixed(固定)           |
+
+
+
+#### 6.11 CSS三大特性
+
+> CSS有三个非常重要的特性: 层叠性, 继承性, 优先级.
+
+
+
+##### 6.11.1 层叠性
+
+> 相同选择器给设置相同的样式, 此时一个样式就会覆盖另一个冲突的样式, 层叠性主要解决样式冲突的问题.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            color: aliceblue;
+        }
+
+        /* 就近原则, 最下边的覆盖上边的 */
+        div {
+            color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div>这是一个div</div>
+</body>
+
+</html>
+```
+
+
+
+##### 6.11.2 继承性
+
+>CSS的继承: 子标签会继承父标签的某些样式, 如文本颜色和字号.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            color: blue;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>我是div
+        <!-- p继承了div的字号和颜色 -->
+        <p>我是p</p>
+    </div>
+</body>
+
+</html>
+```
+
+
+
+> 行高的继承
+
+```html
+body {
+    /* 注意简写行高时必须指定font-family */
+    font: 12px/1.5 Arial;
+}
+```
+
+> - 行高可以跟单位也可以不跟单位;
+> - 如果子元素没有行高, 则会默认继承父元素的行高;
+> - 此时子元素的行高为: 当前子元素的**文字大小 * 父元素行高倍数**;
+> - 这种写法的优点是子元素可以根据自己文字大小自动调整行高.
+
+
+
+
+
+##### 6.11.3 优先级
+
+> 当元素指定了多个选择器时,就会有优先级的产生.
+>
+> 选择器相同则执行层叠性;选择器不同则根据选择器权重执行.
+
+| 选择器              | 选择器权重 |
+| ------------------- | ---------- |
+| 继承或者*           | 0,0,0,0    |
+| 元素选择器          | 0,0,0,1    |
+| 类选择器/伪类选择器 | 0,0,1,0    |
+| ID选择器            | 0,1,0,0    |
+| 行内样式: style=""  | 1,0,0,0    |
+| !important          | 无穷大     |
+
+
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            /* 继承 */
+            color: gray;
+        }
+
+        div {
+            /* 元素选择器*/
+            color: red;
+        }
+
+        .test {
+            /* 类选择器 */
+            color: pink;
+        }
+
+        #col {
+            /* ID选择器 */
+            color: orange;
+
+        }
+
+        div {
+            /* !important 强制执行优先级无穷大.*/
+            color: red !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="test" id="col" style="color:blue">你笑起来真好看</div>
+</body>
+
+</html>
+```
+
+
+
+> 优先级权重叠加: 如果使用复合选择器则会有权重叠加
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 使用复合选择器时权重叠加,比单标签选择权重高 */
+        ul li {
+            color: green;
+        }
+
+        li {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>大猪蹄子</li>
+        <li>大鸡爪子</li>
+    </ul>
+</body>
+
+</html>
+```
+
+
+
+
+
+
+
+
+
+
+
 
 
 

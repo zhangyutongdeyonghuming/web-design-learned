@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            /* 注意简写行高时必须指定font-family */
+            font: 12px/1.5 Arial;
+        }
+
+        /* 子元素继承了父元素body的行高1.5, 即font-size的1.5倍14 * 1.5 = 21 */
+        div {
+            font-size: 14px;
+        }
+
+        p {
+            font-size: 20px
+        }
+
+        li {
+            /* 没指定文字大小,则会继承父亲的文字大小, 12px,行高则为12*1.5=18px */
+        }
+    </style>
+</head>
+
+<body>
+    <div>div</div>
+    <p>p</p>
+    <ul>
+        <li>没手动指定文字大小</li>
+    </ul>
+</body>
+
+</html>
