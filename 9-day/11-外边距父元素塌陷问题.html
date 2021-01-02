@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+            /* 我想让他离上边远一点 */
+            margin-top: 50px;
+
+            /* 加一个透明边框即可解决 */
+            /* border-top: 1px solid transparent; */
+
+            /* 或者给一个内边距 */
+            /* padding-top: 1px; */
+
+            /* 或者overflow hidden */
+            overflow: hidden;
+        }
+
+        .son {
+            width: 200px;
+            height: 200px;
+            background-color: rgb(85, 58, 58);
+            /* 还想子元素距离父元素远一点 */
+            /* 设置完以后发现父元素离上边有100px了,这就是塌陷 */
+            margin-top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小米侧边栏丐版</title>
+    <style>
+        a {
+            /* 转换为块级元素 */
+            display: block;
+            /* 加上padding后宽度多了30 手动减去 */
+            /* width: 234px; */
+            width: 204px;
+            height: 54px;
+            /* 取消下划线 */
+            text-decoration: none;
+            color: #fff;
+            background-color: gray;
+            /* 首行缩进2个字符 */
+            /* text-indent: 2em; */
+            /* 缩进由padding-left解决 */
+            padding-left: 30px;
+            font-size: 14px;
+            /* 由于css没提供垂直居中代码,所以使用小技巧实现 */
+            line-height: 54px
+        }
+
+        /* 设置a标签滑过样式 */
+        a:hover {
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#">手机 电话卡</a>
+    <a href="#">电视 盒子</a>
+    <a href="#">笔记本 平板</a>
+    <a href="#">出行 穿戴</a>
+    <a href="#">智能路由器</a>
+    <a href="#">健康 儿童</a>
+    <a href="#">耳机 音响</a>
+</body>
+
+</html>

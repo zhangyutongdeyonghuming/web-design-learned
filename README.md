@@ -2664,6 +2664,603 @@ body {
 
 
 
+#### 6.12 盒子模型
+
+> 页面布局有三大核心: 盒子模型/浮动/定位.
+>
+> 网页布局过程:
+>
+> 1. 先准备好相关的网页元素, 网页元素基本都是盒子;
+> 2. 利用CSS设置盒子样式, 然后摆放到相应位置;
+> 3. 往盒子里面装内容
+>
+> 
+>
+> 网页布局核心本质: 利用CSS摆放盒子
+>
+> 
+>
+> 盒子模型的组成部分: border边框/content内容/padding内边距/margin外边距
+
+
+
+##### 6.12.1 边框
+
+> border 可以设置元素的边框, 边框有三部分组成, 边框宽度 边框样式 边框颜色.
+>
+> 语法: **border: border-width | border-style | border-color**
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 40px;
+            /* 边框宽度 */
+            /* border-width: 5px; */
+            /* 边框样式, solid: 实线;dashed: 虚线;dotted: 点线 */
+            /* border-style: solid; */
+            /* 边框颜色 */
+            /* border-color: pink; */
+
+            /* 复合写法,没有先后顺序 */
+            /* border: 5px solid red; */
+
+            /* 分开写法,上边框,其余同理 */
+            border-top: 5px solid red;
+
+            border-bottom: 10px dotted pink;
+
+            border-left: 5px dashed orange;
+
+            border-right: 10px dotted black;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>
+```
+
+
+
+> 表格的细线边框
+>
+> 表格的边框挤在一起会出现1+1=2的情况, 我们需要合并相邻的边框;使用**border-collapse: collapse;**来合并相邻的边框.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>表格案例</title>
+    <style>
+        table {
+            width: 500px;
+            height: 25px;
+        }
+
+        th {
+            height: 30px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid pink;
+            /* 表格相邻格合并 */
+            border-collapse: collapse;
+            text-align: center;
+
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>排名</th>
+            <th>关键词</th>
+            <th>今日搜索</th>
+            <th>最近七日</th>
+            <th>链接</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>鬼吹灯</td>
+            <td>345</td>
+            <td>123</td>
+            <td>
+                <a href="#">贴吧</a>
+                <a href="#">百科</a>
+            </td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>盗墓笔记</td>
+            <td>345</td>
+            <td>123</td>
+            <td>
+                <a href="#">贴吧</a>
+                <a href="#">百科</a>
+            </td>
+        </tr>
+
+    </table>
+
+
+</body>
+
+</html>
+```
+
+
+
+> 边框会影响盒子的大小
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            /* 需要200*200的盒子 */
+            width: 180px;
+            height: 180px;
+            background-color: #ccc;
+            border: 10px solid #aaa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div></div>
+</body>
+
+</html>
+```
+
+
+
+##### 6.12.2 内边距padding
+
+> padding用于设置内边距, 即边框与内容之间的距离.
+>
+> padding-top/padding-left/padding-right/padding-bottom分别为上内边距/左内边距/右内边距/下内边距.
+>
+> padding也会影响盒子实际大小.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            height: 250px;
+            background-color: #aaa;
+            /* 内边距 */
+            padding-top: 30px;
+            padding-left: 20px;
+
+            /* 复合写法, 上下左右5px */
+            padding: 5px;
+
+            /* 复合写法,上下30px 左右20px */
+            padding: 30px 20px;
+            /* 复合写法, 上30px 左右20px 下15px*/
+            padding: 30px 20px 15px;
+
+            /* 复合写法,分别是上右下左 */
+            padding: 30px 20px 15px 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>盒子的内容</div>
+</body>
+
+</html>
+```
+
+
+
+> 内边距应用: 可以不用固定宽度, 使用内边距撑开盒子.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新浪导航</title>
+    <style>
+        .nav {
+            background-color: #fcfcfc;
+            font-size: 12px;
+            height: 41px;
+            line-height: 41px;
+            border-top: 3px solid #ff8500;
+            border-bottom: 1px solid #edeef0;
+
+        }
+
+        .nav a {
+            /* 直接设置高度不行,这里设置高度是因为a标签伪类变背景色 */
+            display: inline-block;
+            height: 41px;
+            /* 删除下划线 */
+            text-decoration: none;
+            color: #4c4c4c;
+            /* 上下0 左右20px撑起盒子 */
+            padding: 0 20px;
+        }
+
+        .nav a:hover {
+            color: #ff8500;
+            background-color: #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <a href="#">设为首页</a>
+        <a href="#">手机新浪网</a>
+        <a href="#">移动客户端</a>
+        <a href="#">登录微博</a>
+        <a href="#">博客</a>
+        <a href="#">邮箱</a>
+        <a href="#">网站导航</a>
+    </div>
+
+</body>
+
+</html>
+```
+
+
+
+> padding不会直接撑开的效果.
+>
+> 1. 不显式指定宽高时;
+> 2. 或者是继承父标签的宽高时.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            height: 300px;
+            /* 在不显式指定width/height时padding不会生效 */
+            /* width: 100px; */
+            padding: 30px;
+            background-color: #111;
+        }
+
+        div {
+            width: 300px;
+            height: 100px;
+            background-color: #aaa;
+        }
+
+        div p {
+            /* 此处继承了父亲div的高宽,在指定padding时不撑开 */
+            padding: 30px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>  
+    <h1>123</h1>
+    <div>
+        <p>123</p>
+    </div>
+</body>
+
+</html>
+```
+
+
+
+##### 6.12.3 外边距
+
+> margin属性用于设置外边距, 即控制盒子之间的距离.
+>
+> margin的简写与padding一样.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            background-color: #666669;
+            width: 200px;
+            height: 200px;
+        }
+
+        .one {
+            margin-bottom: 10px;
+        }
+
+        .two {
+            margin: 30px 52px 40px 22px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="one">1</div>
+    <div class="two">2</div>
+</body>
+
+</html>
+```
+
+
+
+> 外边距的典型应用: 可以让块级盒子水平居中,但是需要满足两个条件
+>
+> 1. 盒子必须指定了宽度width;
+> 2. 盒子左右外边距设置为auto.
+
+
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .header {
+            width: 900px;
+            height: 40px;
+            margin: 100px auto;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+
+    </div>
+</body>
+
+</html>
+```
+
+
+
+> 对于两个嵌套关系的块元素,父元素有上外边距且子元素也有上外边距时,父元素会塌陷较大的外边距值.
+>
+> 解决方法:
+>
+> 1. 给父元素加border-top;
+> 2. 给父元素加上内边距padding-top;
+> 3. overflow:hidden;
+
+
+
+```HTML
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+            /* 我想让他离上边远一点 */
+            margin-top: 50px;
+
+            /* 加一个透明边框即可解决 */
+            /* border-top: 1px solid transparent; */
+
+            /* 或者给一个内边距 */
+            /* padding-top: 1px; */
+
+            /* 或者overflow hidden */
+            overflow: hidden;
+        }
+
+        .son {
+            width: 200px;
+            height: 200px;
+            background-color: rgb(85, 58, 58);
+            /* 还想子元素距离父元素远一点 */
+            /* 设置完以后发现父元素离上边有100px了,这就是塌陷 */
+            margin-top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+</body>
+
+</html>
+```
+
+
+
+> 清除内外边距
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 清除外内边距 */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>good</li>
+        <li>academic</li>
+    </ul>
+</body>
+
+</html>
+```
+
+
+
+> 注意:
+>
+> 1. 行内元素只设置左右边距, 一般不设上下边距;
+> 2. 但是转为块级元素/行内块元素就可以设置了.
+
+
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-size: 14px;
+        }
+
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .box {
+            width: 362px;
+            height: 510px;
+            background-color: #fff;
+            /* 盒子水平居中对齐 */
+            margin: 100px auto;
+        }
+
+        .box>img {
+            /* 图片和父亲一样宽 */
+            width: 100%;
+            height: 268px;
+        }
+
+        .review {
+            /* 评论需要制定高度,下面就可以固定了 */
+            height: 70px;
+            /* 因为段落没设width 所以使用padding不会撑开 */
+            padding: 0 40px;
+
+            /* 因为设置了height 所以不用padding */
+            margin-top: 40px;
+        }
+
+        .appraise {
+            font-size: 12px;
+            color: #b0b0b0;
+            margin-top: 25px;
+            padding: 0 40px;
+        }
+
+        .info>h4 {
+            display: inline-block;
+            font-weight: 400;
+        }
+
+        .info {
+            margin-top: 24px;
+            padding: 0 40px;
+        }
+
+        .money {
+            color: #e2a05b;
+        }
+
+        .split {
+            font-style: normal;
+            color: #ebe4e0;
+            margin: 0 10px 0 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img src="../resources/img.jpg" alt="">
+        <p class="review">
+            <a href="#">快递牛, 整体不错蓝牙可以说秒连.红米给力</a>
+        </p>
+        <div class="appraise">来自于117384232的评价</div>
+        <div class="info">
+            <h4>
+                <a href="#">Redmi AirDots真无线蓝...</a>
+            </h4>
+            <em class="split">|</em>
+            <span class="money">99.9元</span>
+        </div>
+    </div>
+</body>
+
+</html>
+```
+
+
+
+
+
+
+
 
 
 
