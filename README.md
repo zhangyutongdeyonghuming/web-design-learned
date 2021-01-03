@@ -3257,11 +3257,251 @@ body {
 
 
 
+#### 6.13 圆角边框
+
+> 在CSS3新增了圆角边框, border-radius: length;设置元素的外边框圆角.
+>
+> 原理: 圆与边框的交集形成圆角效果.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box"></div>
+</body>
+
+</html>
+```
 
 
 
+> 常用写法
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: pink;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            /* 如果想要圆形,则设置为宽度的一半 */
+            /* border-radius: 100px; */
+            /* 也可以使用百分比表示 */
+            border-radius: 50%;
+            background-color: #fff;
+        }
+
+        .box2 {
+            width: 300px;
+            height: 150px;
+            background-color: #fff;
+            /* 如果想要圆角矩形,则可以设置为高度的一半 */
+            border-radius: 75px;
+        }
+
+        .box3 {
+            width: 300px;
+            height: 200px;
+            background-color: #fff;
+            /* 可以分别设置四个角的弧度, 顺时针左上 右上 右下 左下 */
+            border-radius: 10px 20px 30px 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>1圆形</p>
+    <div class="box"></div>
+    <p>2圆角矩形</p>
+    <div class="box2"></div>
+    <p>3单独设置</p>
+    <div class="box3"></div>
+</body>
+
+</html>
+```
 
 
+
+#### 6.14 盒子阴影
+
+> CSS3中新增了盒子阴影, 我们可以使用box-shadow属性为盒子添加阴影.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 0 auto;
+            /* 设置盒子阴影. */
+            box-shadow: 10px 10px 10px -4px rgba(0, 0, 0, .3);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+
+</html>
+```
+
+
+
+| 参数值   | 描述                                 |
+| -------- | ------------------------------------ |
+| h-shadow | 必需, 水平阴影的位置, 允许负值       |
+| v-shadow | 必需, 垂直阴影的位置, 允许负值       |
+| blur     | 可选, 模糊距离                       |
+| spread   | 可选, 阴影的尺寸                     |
+| color    | 可选, 阴影颜色                       |
+| inset    | 可选, 将外部阴影(outset)改为内部阴影 |
+
+> 注意点:
+>
+> 1. 默认的是外阴影outset, 但是不能显式指定,否则阴影失效;
+> 2. 盒子阴影不占空间,不影响其他盒子排列
+
+
+
+#### 6.15 文字阴影
+
+>在CSS3 中可以使用text-shadow设置文字阴影.
+>
+>语法 text-shadow: h-shadow水平位置 | v-shadow垂直位置 | blur模糊距离 | color
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            font-size: 50px;
+            font-weight: 700;
+            text-shadow: 5px 5px 6px rgba(0, 0, 0, .3);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">文字阴影</div>
+</body>
+
+</html>
+```
+
+
+
+#### 6.16 浮动
+
+
+
+##### 6.16.1 标准流(普通流/文档流)
+
+> 所谓的标准流: 就是标签按照规定好默认方式排列
+>
+> 1. 块级元素会独占一行, 从上向下顺序排列; 常用元素: div/hr/p/h1-h6/ul/ol/dl/form/table
+> 2. 行内元素会按照顺序, 从左到右顺序排列, 碰到父元素边缘则自动换行,常用元素span/a/i/em
+
+
+
+##### 6.16.2 为什么需要浮动?
+
+> 有很多的布局效果, 标准流没有办法来完成, 此时就可以利用浮动完成布局. 因为浮动可以改变元素标签默认的排列方式.
+>
+> 浮动最典型的应用就是: 可以让多个块级元素一行内排列显示.
+>
+> 准则: 多个块级元素纵向排列找标准流, 多个块级元素横向排列找浮动.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 100px;
+            background-color: pink;
+            /* 加上以后 div横向排列了 */
+            float: left;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+</body>
+
+</html>
+```
+
+
+
+> 什么是浮动
+>
+> float属性用于创建浮动框, 将其移动到一边, 直到左边缘/右边缘及包含块或另一个浮动框的边缘.
+>
+> 语法:
+>
+> ​		float: 属性值;
+
+
+
+> 浮动特性
+>
+> 加了浮动之后的元素, 会具有很多特性,需要掌握
+>
+> 1. 浮动元素会脱离标准流, 浮动的盒子不再保留原先的位置(俗称**脱标**)
+> 2. 浮动的元素会一行显示并且元素顶部对齐, 他们是互相贴靠在一起的不会有缝隙, 如果父级宽度装不下这些盒子, 多出的盒子会另起一行对齐;
+> 3. 浮动的元素会具有行内块元素的特性.
+
+
+
+> **浮动的元素经常搭配标准流的父元素一起使用, 先用标准流的父元素排列上下位置, 之后在内部子元素采取浮动排列左右位置.符合网页布局的第一准则.**
 
 
 

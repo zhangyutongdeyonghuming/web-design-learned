@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .float {
+            width: 200px;
+            height: 150px;
+            background-color: pink;
+            /* 如果单给一个盒子设置了浮动, 因为他浮动不占位置了, 
+            所以第二行会上移, 导致浮动盒子压住第二行盒子 */
+            float: left;
+        }
+
+        .normal {
+            width: 400px;
+            height: 250px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="float"></div>
+    <div class="normal"></div>
+</body>
+
+</html>

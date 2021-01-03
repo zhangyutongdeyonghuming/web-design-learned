@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: pink;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            /* 如果想要圆形,则设置为宽度的一半 */
+            /* border-radius: 100px; */
+            /* 也可以使用百分比表示 */
+            border-radius: 50%;
+            background-color: #fff;
+        }
+
+        .box2 {
+            width: 300px;
+            height: 150px;
+            background-color: #fff;
+            /* 如果想要圆角矩形,则可以设置为高度的一半 */
+            border-radius: 75px;
+        }
+
+        .box3 {
+            width: 300px;
+            height: 200px;
+            background-color: #fff;
+            /* 可以分别设置四个角的弧度, 顺时针左上 右上 右下 左下 */
+            border-radius: 10px 20px 30px 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>1圆形</p>
+    <div class="box"></div>
+    <p>2圆角矩形</p>
+    <div class="box2"></div>
+    <p>3单独设置</p>
+    <div class="box3"></div>
+</body>
+
+</html>
