@@ -3505,6 +3505,113 @@ body {
 
 
 
+> 为什么清除浮动?
+>
+> 由于父级盒子在很多的情况下, 不方便给高度, 但是子盒子浮动又不占有位置, 最后父级盒子高度为0时, 就会影响下面的标准流盒子.
+>
+> 清除浮动的本质: 
+>
+> 1. 清除浮动元素造成的影响;
+> 2. 如果父盒子有高度,则不需清除浮动;
+> 3. 清除浮动后父级盒子会根据浮动的子盒子自动监测高度
+> 4. 语法clear: left/right/both;
+>
+> 清除浮动的策略是: 闭合浮动, 只让浮动在父盒子内部影响, 不影响父盒子外面的其他盒子.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 1200px;
+            margin: 0 auto;
+            /* 2.第二种方法清除浮动, overflow: hidden;缺点是溢出隐藏 */
+            /* overflow: hidden; */
+        }
+
+        /* 3.第三种清除浮动, 伪元素法,建议使用 */
+        /* .clearfix:after {
+            content: "";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+        .clearfix {
+            zoom: 1;
+        } */
+        /* 4.第四种方式清除浮动， 双伪元素 */
+        .clearfix::before,
+        .clearfix::after {
+            content: "";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+        .clearfix {
+            zoom: 1;
+        }
+
+        .first {
+            width: 200px;
+            height: 500px;
+            float: left;
+            background-color: #ccc;
+        }
+
+        .second {
+            width: 300px;
+            height: 500px;
+            float: right;
+            background-color: #333;
+        }
+
+        .footer {
+            width: 500px;
+            height: 200px;
+            background-color: #111;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box clearfix">
+        <div class="first"></div>
+        <div class="second"></div>
+        <!-- 1.第一种方法:额外标签法,在最后一个浮动元素(必须是块级元素)后面加上clear: both清除left/right的浮动 -->
+        <!-- <div style="clear:both;"></div> -->
+    </div>
+    <div class="footer">
+
+    </div>
+</body>
+
+</html>
+```
+
+
+
+| 清除浮动的方式           | 优点           | 缺点               |
+| ------------------------ | -------------- | ------------------ |
+| 额外标签法               | 通俗易懂       | 添加许多无意义标签 |
+| 父级overflow:hidden;     | 书写简单       | 溢出隐藏           |
+| 父级after伪元素          | 结构语义化正确 | 兼容性问题         |
+| 父级before+after双伪元素 | 结构语义化正确 | 兼容性问题         |
+
+
+
+
+
+
+
 
 
 
