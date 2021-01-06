@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: rgb(0, 0, 0)
+}
+
+body {
+    background-color: #f3f5f7;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+/* 版心, 如果需要直接加类名即可, 公共类 */
+.center {
+    width: 1200px;
+    margin: auto;
+}
+
+/* 头 */
+.header {
+    height: 100px;
+    margin: 30px auto;
+}
+
+.header .logo {
+    float: left;
+    margin-right: 60px;
+    width: 198px;
+    height: 42px;
+}
+
+.header .nav {
+    float: left;
+    font-size: 20px;
+}
+
+.header li {
+    float: left;
+    margin: 0 15px;
+}
+
+.header .nav a {
+    display: inline-block;
+    height: 42px;
+    padding: 0 10px;
+    line-height: 42px;
+    font-size: 18px;
+}
+
+.header .nav a:hover {
+    border-bottom: 2px solid #00a4ff;
+    color: #00a4ff;
+}
+
+.header .search {
+    float: left;
+    height: 42px;
+    width: 412px;
+    margin-left: 80px;
+}
+
+.header .search .searchInput {
+    float: left;
+    height: 40px;
+    width: 345px;
+    border: 1px solid #00a4ff;
+    border-right: 0;
+    font-size: 14px;
+    padding-left: 15px;
+    outline: none;
+}
+
+.header .search .searchButton {
+    float: left;
+    background-color: #00a4ff;
+    background-image: url(../images/searchButton.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 42px;
+    width: 42px;
+    border: none;
+}
+
+.header .user {
+    float: right;
+    line-height: 42px;
+    font-size: 14px;
+    color: #666666;
+    margin-right: 30px;
+}
+
+.header .user .avatar {
+    float: left;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.header .user .nickName {
+    float: left;
+}
