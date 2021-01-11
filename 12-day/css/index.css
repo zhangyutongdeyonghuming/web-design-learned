@@ -231,3 +231,46 @@ li {
     font-size: 14px;
     color: #00a4ff;
 }
+
+.recommend {
+    height: 600px;
+    margin-top: 30px;
+}
+
+.recommend .head {
+    height: 30px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.recommend .head h3 {
+    float: left;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.recommend .head a {
+    float: right;
+    line-height: 30px;
+    color: #a5a5a5;
+    font-size: 12px;
+}
+
+.recommend .content {
+    height: 560px;
+}
+
+.recommend .content ul li {
+    float: left;
+    margin: 0 0 0 15px;
+}
+
+.recommend .content ul .left {
+    margin-left: 0;
+}
+
+.recommend .content ul a {
+    display: inline-block;
+    width: 228px;
+    height: 271px;
+}
