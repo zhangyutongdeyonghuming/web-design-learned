@@ -27,7 +27,7 @@ li {
     margin: 40px auto;
 }
 
-.header::after {
+.clear::after {
     clear: both;
     content: "";
     display: block;
@@ -120,32 +120,32 @@ li {
     float: left;
     width: 192px;
     padding-top: 10px;
-    padding-left: 20px;
     background-color: rgba(20, 2, 75, .7);
-
 }
 
-.banner .content::after {
-    content: "";
-    display: block;
-    clear: both;
-}
 
 .banner .content .menu li {
-    background-image: url(../images/right.png);
-    background-repeat: no-repeat;
-    background-position: 166px center;
+    padding-left: 20px;
+}
+
+.banner .content .menu li:hover {
+    background-color: #22b0ff;
 }
 
 .banner .content .menu a {
     display: inline-block;
+    width: 172px;
     height: 45px;
     line-height: 45px;
     color: #ffffff;
+    background-image: url(../images/right.png);
+    background-repeat: no-repeat;
+    background-position: 146px center;
 }
 
 .banner .content {
     background-image: url(../images/banner.png);
+    height: 420px;
 }
 
 .banner .content .history {
@@ -194,4 +194,40 @@ li {
     margin: 5px 15px 20px 15px;
     border: 1px solid #22b0ff;
     background-color: #fff;
+}
+
+
+.indicator {
+    margin-top: 10px;
+    height: 60px;
+    line-height: 60px;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, .1);
+}
+
+.indicator .menu li {
+    float: left;
+    font-size: 16px;
+}
+
+.indicator .menu span {
+    float: left;
+    color: #bfbfbf;
+}
+
+.indicator .menu li a {
+    padding: 22px 33px;
+}
+
+.indicator .menu .first a {
+    color: #00a4ff;
+}
+
+.indicator .menu .last {
+    float: right;
+}
+
+.indicator .menu .last a {
+    font-size: 14px;
+    color: #00a4ff;
 }
