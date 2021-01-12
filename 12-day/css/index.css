@@ -27,7 +27,8 @@ li {
     margin: 40px auto;
 }
 
-.clear::after {
+.clear::after,
+.clear::before {
     clear: both;
     content: "";
     display: block;
@@ -270,7 +271,90 @@ li {
 }
 
 .recommend .content ul a {
+    background-color: #fff;
+}
+
+.recommend .content ul .img {
+    height: 155px;
+    width: 100%;
+}
+
+.recommend .content ul .description {
+    font-size: 12px;
+    padding-left: 25px;
+}
+
+.recommend .content ul .description .left {
+    color: #ff7c2d;
+}
+
+.recommend .content ul .description .right {
+    color: #999999;
+}
+
+.recommend .content ul p {
+    margin: 25px 20px 20px 25px;
+    font-size: 14px;
+    color: #050505;
+}
+
+.recommend .content ul a {
     display: inline-block;
     width: 228px;
     height: 271px;
+}
+
+.footer {
+    background-color: #ffffff;
+    height: 415px;
+    margin-top: 20px;
+}
+
+.long {
+    margin-top: 33px;
+}
+
+.footer .center .left {
+    margin-left: 20px;
+    float: left;
+}
+
+.footer .center .left .about {
+    font-size: 12px;
+    color: #666666;
+    margin-top: 25px;
+    line-height: 20px;
+}
+
+.footer .center .left .download {
+    height: 35px;
+    width: 120px;
+    margin-top: 10px;
+    background-color: transparent;
+    border: 1px solid #00a4ff;
+    outline: none;
+}
+
+
+.footer .center .right {
+    float: right;
+    color: #333333;
+}
+
+.footer .center .right dl {
+    float: left;
+    margin-right: 120px;
+}
+
+.footer .center .right dt {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.footer .center .right dd {
+    font-size: 12px;
+}
+
+.footer .center .right .last {
+    margin-right: 30px
 }
