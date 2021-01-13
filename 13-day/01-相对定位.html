@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 400px;
+            height: 400px;
+        }
+
+        .box {
+            height: 1000px;
+            width: 1000px;
+        }
+
+        .first {
+            background-color: #111;
+            /* 设置相对定位后发现,没有脱标,还是占位置的,不像浮动会脱标不占位 */
+            position: relative;
+            top: 100px;
+            left: 100px;
+        }
+
+        .second {
+            background-color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="first"></div>
+        <div class="second"></div>
+    </div>
+</body>
+
+</html>

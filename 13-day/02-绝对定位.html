@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 当没有父元素时, 则根据浏览器文档为准 */
+        .box {
+            width: 400px;
+            height: 400px;
+            background-color: #333;
+            /* 设置绝对定位 */
+            position: absolute;
+            top: 100px;
+            right: 0;
+        }
+
+        /* 父元素没设置定位 */
+        /* .parent {
+            width: 1400px;
+            height: 1400px;
+            background-color: pink;
+        } */
+
+        /* 当父元素没有设置定位时, 则根据浏览器文档为准 */
+        /* .parent .son {
+            width: 400px;
+            height: 400px;
+            background-color: #333;
+            
+            position: absolute;
+            bottom: 100px;
+            left: 0;
+        } */
+
+        /* 如果爷爷设置了定位 */
+        .grandparent {
+            width: 1200px;
+            height: 1400px;
+            background-color: pink;
+            position: absolute;
+
+        }
+
+        /* 父亲没有定位 */
+        .grandparent .parent {
+            width: 800px;
+            height: 800px;
+            background-color: #333;
+        }
+
+        /* 那么元素就会以最近一级设置定位的祖先元素为准 */
+        .grandparent .parent .son {
+            width: 400px;
+            height: 400px;
+            background-color: #fff;
+            position: absolute;
+            right: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+    </div>
+
+    <div class="parent">
+        <div class="son"></div>
+    </div>
+
+    <div class="grandparent">
+        <div class="parent">
+            <div class="son"></div>
+        </div>
+    </div>
+</body>
+
+</html>

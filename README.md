@@ -3608,15 +3608,199 @@ body {
 
 
 
+#### 7. 定位
+
+> 为什么使用定位?
+>
+> 1. 浮动可以让多个盒子一行没有缝隙排列显示, 经常用在横向排列盒子;
+> 2. 定位则是可以让盒子自由的在某个盒子内移动位置或固定屏幕中某个位置, 并且可以压住其他盒子.
 
 
 
 
 
+##### 7.1 定位组成
+
+> 定位: 将盒子定在某个位置, 所以定位也是在摆放盒子, 按照定位的方式移动盒子.
+>
+> **定位 = 定位模式 + 边偏移**
+>
+> - 定位模式决定一个元素在文档中的定位方式, 
+> - 边偏移决定该元素的最终位置
 
 
 
+> 定位模式通过CSS的position来设置, 值有四个:
 
+| 值       | 语义     |
+| -------- | -------- |
+| static   | 静态定位 |
+| relative | 相对定位 |
+| absolute | 绝对定位 |
+| fixed    | 固定定位 |
+
+
+
+> 边偏移: 通过top/bottom/left/right分别设置到上下左右的距离
+
+
+
+##### 7.2 静态定位 static
+
+> position: static
+>
+> 静态定位是元素的默认定位方式, 无定位的意思
+>
+> 静态定位按照标准流特性摆放, 没有边偏移
+
+
+
+##### 7.3相对定位 relative
+
+> position: relative
+>
+> 相对定位是指元素在移动位置时是相对于它原来的位置来说的.
+>
+> 移动后不脱标, 继续保留原来位置
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 400px;
+            height: 400px;
+        }
+
+        .box {
+            height: 1000px;
+            width: 1000px;
+        }
+
+        .first {
+            background-color: #111;
+            /* 设置相对定位后发现,没有脱标,还是占位置的,不像浮动会脱标不占位 */
+            position: relative;
+            top: 100px;
+            left: 100px;
+        }
+
+        .second {
+            background-color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="first"></div>
+        <div class="second"></div>
+    </div>
+</body>
+
+</html>
+```
+
+
+
+##### 7.4 绝对定位 absolute
+
+> position: absolute;
+>
+> 绝对定位是元素在移动位置时, 是相对于祖先元素的.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 当没有父元素时, 则根据浏览器文档为准 */
+        .box {
+            width: 400px;
+            height: 400px;
+            background-color: #333;
+            /* 设置绝对定位 */
+            position: absolute;
+            top: 100px;
+            right: 0;
+        }
+
+        /* 父元素没设置定位 */
+        /* .parent {
+            width: 1400px;
+            height: 1400px;
+            background-color: pink;
+        } */
+
+        /* 当父元素没有设置定位时, 则根据浏览器文档为准 */
+        /* .parent .son {
+            width: 400px;
+            height: 400px;
+            background-color: #333;
+            
+            position: absolute;
+            bottom: 100px;
+            left: 0;
+        } */
+
+        /* 如果爷爷设置了定位 */
+        .grandparent {
+            width: 1200px;
+            height: 1400px;
+            background-color: pink;
+            position: absolute;
+
+        }
+
+        /* 父亲没有定位 */
+        .grandparent .parent {
+            width: 800px;
+            height: 800px;
+            background-color: #333;
+        }
+
+        /* 那么元素就会以最近一级设置定位的祖先元素为准 */
+        .grandparent .parent .son {
+            width: 400px;
+            height: 400px;
+            background-color: #fff;
+            position: absolute;
+            right: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+    </div>
+
+    <div class="parent">
+        <div class="son"></div>
+    </div>
+
+    <div class="grandparent">
+        <div class="parent">
+            <div class="son"></div>
+        </div>
+    </div>
+</body>
+
+</html>
+```
 
 
 
