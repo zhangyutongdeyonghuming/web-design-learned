@@ -266,6 +266,19 @@ li {
     margin: 0 0 0 15px;
 }
 
+/* 新增定位相关角标 hot/new */
+.recommend .content .icon {
+    /* 父元素相对定位占位 */
+    position: relative;
+}
+
+.recommend .content .iconImg {
+    /* 子元素绝对定位不占位 */
+    position: absolute;
+    top: 4px;
+    right: -4px;
+}
+
 .recommend .content ul .left {
     margin-left: 0;
 }

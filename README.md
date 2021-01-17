@@ -3804,11 +3804,397 @@ body {
 
 
 
+##### 7.5 子绝父相的由来
+
+> 子级盒子是绝对定位的话, 父级盒子要用相对定位
+>
+> 1. 子盒子绝对定位, 不会占有位置, 可以放到父盒子里面的任何一个地方, 不会影响到其他的兄弟盒子;
+> 2. 父盒子需要加定位限制子盒子在父盒子内显示;(如果不加的话, 子盒子会一直向上直到找到文档寻找加了定位的祖元素)
+> 3. 父盒子布局时需要占有位置, 而占位置的定位刚好是相对定位, 因此父元素只能是相对定位.
+>
+> 简单来说: **子盒子不占位置, 因此是绝对定位; 而父盒子需要占有位置, 因此用相对定位.**
 
 
 
+##### 7.6 固定定位
+
+> **position: fixed**
+>
+> 1. **以浏览器的可视窗口为参照点进行移动元素**;
+> 2. **跟父元素没任何关系**;
+> 3. **随着滚动条滚动**;
+> 4. **不保留位置**
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            /* 手动智造滚动条, 滚动时图片位置不变 */
+            height: 3000px;
+        }
+
+        .pic {
+            /* 绝对定位: 以浏览器的可视窗口进行对齐 */
+            position: fixed;
+            top: 100px;
+            left: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <img class="pic" src="../resources/r_dj.png" alt="">
+    <!-- 图片会压住文字, 说明图片设置绝对定位后不占位置 -->
+    <p>请尽情吩咐主人,妲己</p>
+    <p>请尽情吩咐主人,妲己</p>
+    <p>请尽情吩咐主人,妲己</p>
+    <p>请尽情吩咐主人,妲己</p>
+    <p>请尽情吩咐主人,妲己</p>
+    <p>请尽情吩咐主人,妲己</p>
+    <p>请尽情吩咐主人,妲己</p>
+    <p>请尽情吩咐主人,妲己</p>
+    <p>请尽情吩咐主人,妲己</p>
+    <p>请尽情吩咐主人,妲己</p>
+
+</body>
+
+</html>
+```
 
 
+
+> 固定定位小技巧: 固定在版心右侧
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content {
+            height: 1200px;
+            width: 1200px;
+            margin: 0 auto;
+            background-color: pink;
+        }
+
+        .fixed {
+            position: fixed;
+            height: 150px;
+            width: 50px;
+            background-color: #111;
+            /* 先用定位移动到50%,在用margin-left移动版心一半的距离 */
+            left: 50%;
+            margin-left: 600px;
+            bottom: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fixed"></div>
+    <div class="content"></div>
+</body>
+
+</html>
+```
+
+
+
+##### 7.7 粘性定位
+
+> position: sticky
+>
+> **粘性定位可以被认为是相对定位和固定定位的混合**
+>
+> 1. **以浏览器的可视窗口为参照点移动元素(固定定位特点);**
+> 2. **粘性定位占有原先的位置(相对定位特点);**
+> 3. **必须添加top/left/right/bottom其中一个才生效**
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 4000px;
+        }
+
+        .sticky {
+            /* 设置粘性定位 */
+            position: sticky;
+            width: 1200px;
+            height: 150px;
+            margin: 300px auto;
+            /* 需设置top/bottom/left/right才生效, 当导航栏距离顶部0像素时会固定在顶部 */
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sticky">
+        导航栏
+    </div>
+</body>
+
+</html>
+```
+
+
+
+##### 7.8 定位总结
+
+| 定位模式         | 是否脱标     | 移动位置                     | 是否使用 |
+| ---------------- | ------------ | ---------------------------- | -------- |
+| static静态定位   | 否           | 不能使用边偏移               | 很少     |
+| relative相对定位 | 否(占有位置) | 相对于自身位置移动           | 常用     |
+| absolute绝对定位 | 是(不占位置) | 相对于带有定位的父级元素移动 | 常用     |
+| fixed固定定位    | 是(不占位置) | 浏览器可视区                 | 常用     |
+| sticky粘性定位   | 否(占有位置) | 浏览器可视区                 | 较少     |
+
+
+
+##### 7.9 定位的叠放次序 z-index
+
+> 在使用定位布局时, 可能会出现盒子重叠的情况, 此时可以使用z-index设置盒子的前后次序. z-index: 0;
+>
+> - 数值可以是正整数/负整数/0, 默认是auto, 数值越大盒子越靠上;
+> - 如果属性值相同, 则按照书写顺序后来者居上;
+> - 数字不能加单位;
+> - 只有定位的盒子才有z-index属性
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+        }
+
+        .one {
+            background-color: burlywood;
+            /* 设置了z-index: 100;变为这个盒子压住另外两个 */
+            z-index: 100;
+            top: 0;
+            left: 0;
+        }
+
+        .two {
+            background-color: blue;
+            top: 150px;
+            left: 150px;
+            /* 设置了z-index: 101 比上大, 压住上一个*/
+            z-index: 101;
+        }
+
+        .three {
+            /* 如果不设置z-index的话, 后来者居上压住前两个盒子 */
+            background-color: pink;
+            top: 250px;
+            left: 250px;
+            /* 设置z-index: 102;最大 压住前两个 */
+            z-index: 102;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box one"></div>
+    <div class="box two"></div>
+    <div class="box three"></div>
+</body>
+
+</html>
+```
+
+
+
+##### 7.10 定位拓展
+
+
+
+###### 7.10.1 绝对定位的盒子居中
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: #111111;
+            /* 这是设置盒子水平居中的方式, 但是在使用定位后则不能使用 */
+            /* margin: 0 auto; */
+
+            /* 我们可以使用left: 50%; 然后margin-left: -100px;(盒子的宽度的一半)来实现水平居中, 垂直居中同理 */
+            position: absolute;
+            left: 50%;
+            margin-left: -100px;
+
+            top: 50%;
+            margin-top: -100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+
+    </div>
+</body>
+
+</html>
+```
+
+
+
+###### 7.10.2 定位特特性
+
+> 1. 行内元素添加定位后可以直接设置高度和宽度.
+> 2. 块级元素添加绝对或者固定定位, 如果不给宽度或者高度, 默认是内容的大小
+> 3. 脱标的盒子不会触发外边距塌陷, 浮动元素/ 绝对定位(固定定位)的元素都不会触发外边距合并的问题.
+> 4. 绝对定位(固定定位) 会完全压住盒子, 但是浮动只会压住盒子不会压住文字和图片.
+
+
+
+##### 7.11 综合案例
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>淘宝</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333333;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .box {
+            position: relative;
+            width: 520px;
+            height: 280px;
+            left: 50%;
+            margin-left: -260px;
+        }
+
+        .prev,
+        .next {
+            position: absolute;
+            width: 20px;
+            height: 30px;
+            top: 50%;
+            margin-top: -15px;
+            background: rgba(0, 0, 0, .3);
+            color: #fcfcfb;
+            line-height: 30px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .prev {
+            left: 0;
+            border-radius: 0 50% 50% 0;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 50% 0 0 50%;
+        }
+
+        ul {
+            position: absolute;
+            width: 70px;
+            height: 13px;
+            bottom: 15px;
+            left: 50%;
+            margin-left: -35px;
+            background: rgba(255, 255, 255, .3);
+            border-radius: 7px;
+            line-height: 13px;
+        }
+
+        ul li {
+            float: left;
+            margin: 3px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #fff;
+        }
+
+        .checked {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <!-- 广告图 -->
+        <img src="../resources/tb.png" alt="">
+        <!-- 左侧按钮 -->
+        <a href="#" class="prev">
+            &lt;
+        </a>
+
+        <!-- 右侧按钮 -->
+        <a href="#" class="next">
+            &gt;
+        </a>
+
+        <ul>
+            <li class="checked"><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+        </ul>
+    </div>
+</body>
+
+</html>
+```
 
 
 

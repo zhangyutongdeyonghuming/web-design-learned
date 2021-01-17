@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+        }
+
+        .one {
+            background-color: burlywood;
+            /* 设置了z-index: 100;变为这个盒子压住另外两个 */
+            z-index: 100;
+            top: 0;
+            left: 0;
+        }
+
+        .two {
+            background-color: blue;
+            top: 150px;
+            left: 150px;
+            /* 设置了z-index: 101 比上大, 压住上一个*/
+            z-index: 101;
+        }
+
+        .three {
+            /* 如果不设置z-index的话, 后来者居上压住前两个盒子 */
+            background-color: pink;
+            top: 250px;
+            left: 250px;
+            /* 设置z-index: 102;最大 压住前两个 */
+            z-index: 102;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box one"></div>
+    <div class="box two"></div>
+    <div class="box three"></div>
+</body>
+
+</html>

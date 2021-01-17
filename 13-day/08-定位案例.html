@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>淘宝</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333333;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .box {
+            position: relative;
+            width: 520px;
+            height: 280px;
+            left: 50%;
+            margin-left: -260px;
+        }
+
+        .prev,
+        .next {
+            position: absolute;
+            width: 20px;
+            height: 30px;
+            top: 50%;
+            margin-top: -15px;
+            background: rgba(0, 0, 0, .3);
+            color: #fcfcfb;
+            line-height: 30px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .prev {
+            left: 0;
+            border-radius: 0 50% 50% 0;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 50% 0 0 50%;
+        }
+
+        ul {
+            position: absolute;
+            width: 70px;
+            height: 13px;
+            bottom: 15px;
+            left: 50%;
+            margin-left: -35px;
+            background: rgba(255, 255, 255, .3);
+            border-radius: 7px;
+            line-height: 13px;
+        }
+
+        ul li {
+            float: left;
+            margin: 3px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #fff;
+        }
+
+        .checked {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <!-- 广告图 -->
+        <img src="../resources/tb.png" alt="">
+        <!-- 左侧按钮 -->
+        <a href="#" class="prev">
+            &lt;
+        </a>
+
+        <!-- 右侧按钮 -->
+        <a href="#" class="next">
+            &gt;
+        </a>
+
+        <ul>
+            <li class="checked"><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+        </ul>
+    </div>
+</body>
+
+</html>
