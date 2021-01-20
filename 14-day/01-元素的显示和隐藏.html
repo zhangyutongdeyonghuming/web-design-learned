@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 400px;
+            height: 400px;
+        }
+
+        .one {
+            /* 隐藏元素1:不保留位置 */
+            /* display: none; */
+            /* 显示元素 */
+            /* display: block; */
+
+            /* 隐藏元素2:保留位置 */
+            /* visibility: hidden; */
+            /* 显示元素 */
+            visibility: visible;
+            background-color: #333;
+        }
+
+        .two {
+            background-color: #a12345;
+        }
+
+        .overflow {
+            /* 溢出的部分隐藏 */
+            /* overflow: hidden; */
+
+            /* 溢出滚动条, 在任何时候 */
+            /* overflow: scroll; */
+
+            /* 在需要时(有溢出时)添加滚动条 */
+            overflow: auto;
+
+            /* 默认 */
+            /* overflow: visible;*/
+            width: 30px;
+            height: 30px;
+            border: 1px solid pink;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="one">
+        猪爸爸
+    </div>
+    <div class="two">
+        小猪佩奇
+    </div>
+
+    <div class="overflow">go go go 元素的显示和隐藏</div>
+</body>
+
+</html>

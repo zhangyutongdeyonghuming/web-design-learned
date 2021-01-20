@@ -3816,7 +3816,7 @@ body {
 
 
 
-##### 7.6 固定定位
+##### 7.6 固定定位 fixed
 
 > **position: fixed**
 >
@@ -4076,7 +4076,7 @@ body {
 
 
 
-###### 7.10.2 定位特特性
+###### 7.10.2 定位特性
 
 > 1. 行内元素添加定位后可以直接设置高度和宽度.
 > 2. 块级元素添加绝对或者固定定位, 如果不给宽度或者高度, 默认是内容的大小
@@ -4196,7 +4196,138 @@ body {
 </html>
 ```
 
+#### 8. 元素的显示与隐藏
+
+> 在网页中经常有广告, 当我们点击关闭就不见了, 但是我们重新刷新页面就会重新出现!
+>
+> 本质: **让元素隐藏起来.**
+>
+> 1. display 显示隐藏;
+> 2. visibility 显示隐藏;
+> 3. overflow 溢出显示隐藏;
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 400px;
+            height: 400px;
+        }
+
+        .one {
+            /* 隐藏元素1:不保留位置 */
+            /* display: none; */
+            /* 显示元素 */
+            /* display: block; */
+
+            /* 隐藏元素2:保留位置 */
+            /* visibility: hidden; */
+            /* 显示元素 */
+            visibility: visible;
+            background-color: #333;
+        }
+
+        .two {
+            background-color: #a12345;
+        }
+
+        .overflow {
+            /* 溢出的部分隐藏 */
+            /* overflow: hidden; */
+
+            /* 溢出滚动条, 在任何时候 */
+            /* overflow: scroll; */
+
+            /* 在需要时(有溢出时)添加滚动条 */
+            overflow: auto;
+
+            /* 默认 */
+            /* overflow: visible;*/
+            width: 30px;
+            height: 30px;
+            border: 1px solid pink;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="one">
+        猪爸爸
+    </div>
+    <div class="two">
+        小猪佩奇
+    </div>
+
+    <div class="overflow">go go go 元素的显示和隐藏</div>
+</body>
+
+</html>
+```
 
 
 
+#### 9. 案例
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tudou {
+            width: 430px;
+            height: 240px;
+            position: relative;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .mask {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, .4);
+            background-image: url(../resources/arr.png);
+            background-repeat: no-repeat;
+            background-position: center center;
+            display: none;
+        }
+
+        /* 当鼠标经过父盒子时, 遮罩层的样式 */
+        .tudou:hover .mask {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="tudou">
+        <div class="mask"></div>
+        <img src="../resources/tudou.jpg" alt="">
+    </div>
+
+    <div class="tudou">
+        <div class="mask"></div>
+        <img src="../resources/tudou.jpg" alt="">
+    </div>
+</body>
+
+</html>
+```
 
