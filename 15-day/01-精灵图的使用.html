@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .download {
+            width: 234px;
+            height: 126px;
+            background-image: url(../resources/index.png);
+            background-repeat: no-repeat;
+            background-position: 0 -221px;
+        }
+
+        .name::after,
+        .name::before {
+            content: "";
+            clear: both;
+
+        }
+
+        .name div {
+            float: left;
+            width: 100px;
+            height: 110px;
+        }
+
+        .name .one {
+            background-image: url(../resources/abcd.jpg);
+            background-position: -480px -550px;
+            background-repeat: no-repeat;
+        }
+
+        .name .two {
+            background-image: url(../resources/abcd.jpg);
+            background-position: -368px -550px;
+            background-repeat: no-repeat;
+        }
+
+        .name .three {
+            background-image: url(../resources/abcd.jpg);
+            background-position: -368px -410px;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="download"></div>
+
+    <div class="name">
+        <div class="one"></div>
+        <div class="two"></div>
+        <div class="three"></div>
+    </div>
+</body>
+
+</html>
