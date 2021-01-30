@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+            width: 200px;
+            height: 400px;
+            background-color: pink;
+        }
+
+        .box span {
+            position: absolute;
+            right: 20px;
+            /* 其实只显示了盒子下半部分, 所以盒子整体为10px */
+            top: -10px;
+            width: 0;
+            height: 0;
+            line-height: 0;
+            font-size: 0;
+            /* 三角样式 */
+            border: 5px solid transparent;
+            border-bottom-color: pink;
+        }
+
+        .box2 {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            background-color: red;
+        }
+
+        .box2 span {
+            /* 这个在右边的箭头 */
+            position: absolute;
+            right: -10px;
+            top: 20px;
+            width: 0;
+            height: 0;
+            line-height: 0;
+            font-size: 0;
+            border: 5px solid transparent;
+            border-left-color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <span></span>
+    </div>
+
+    <div class="box2">
+        <span></span>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            background-color: gray;
+            width: 150px;
+            height: 33px;
+            /* 超出部分不换行 */
+            white-space: nowrap;
+            /* 溢出异常 */
+            overflow: hidden;
+            /* 文本溢出省略号 */
+            text-overflow: ellipsis;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        此处省略100000000000字.
+    </div>
+</body>
+
+</html>

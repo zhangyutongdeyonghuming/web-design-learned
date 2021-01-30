@@ -102,15 +102,13 @@ li {
 }
 
 .header .user .avatar {
-    float: left;
     width: 30px;
     height: 30px;
     border-radius: 50%;
+    /* 图片文字垂直居中 */
+    vertical-align: middle;
 }
 
-.header .user .nickName {
-    float: left;
-}
 
 .banner {
     background-color: #1c036c;
