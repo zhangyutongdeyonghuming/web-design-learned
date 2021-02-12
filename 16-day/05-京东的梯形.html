@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            display: inline-block;
+            height: 260px;
+            width: 200px;
+            border: 1px solid red;
+            text-decoration: none;
+            color: #ff592d;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .img {
+            margin-top: 30px;
+        }
+
+        .description {
+            width: 160px;
+            margin: 13px 20px 0;
+            padding: 0;
+        }
+
+        .price {
+            width: 160px;
+            height: 24px;
+            margin: 13px 20px 0;
+            border: 1px solid black;
+        }
+
+        .nowPrice {
+            width: 93px;
+            height: 100%;
+            background-color: #e1241b;
+            color: #fff;
+            line-height: 24px;
+            float: left;
+            position: relative;
+        }
+
+        .triangle {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 0;
+            height: 0;
+            /* 增大top的边框值获得直角三角形 */
+            border-top: 24px solid transparent;
+            /* 下边框取消, 获得上半部分 */
+            border-bottom: 0 solid transparent;
+            border-left: 10px solid transparent;
+            border-right: 10px solid #fff;
+
+        }
+
+        .newPrice {
+            float: left;
+            height: 100%;
+            width: 66px;
+            text-decoration: line-through;
+            color: #999999;
+            line-height: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#" class="box">
+        <div class="img">
+            <img src="../resources/25f6defc73dd41e0.jpg.webp" alt="">
+        </div>
+        <h5 class="description">HuaWei Mate 40 Pro 5G...</h5>
+        <div class="price">
+            <div class="nowPrice">
+                <i>￥</i>
+                7768.00
+                <div class="triangle"></div>
+            </div>
+
+            <div class="newPrice"><i>￥</i> 9998.00</div>
+        </div>
+    </a>
+</body>
+
+</html>

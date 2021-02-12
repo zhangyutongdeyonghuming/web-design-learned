@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            position: relative;
+
+        }
+
+        ul li {
+            width: 150px;
+            height: 200px;
+            border: 1px solid black;
+            list-style: none;
+            float: left;
+            /* 我们的边框是1px, 如果直接浮动会有1+1=2的效果, 边框变粗;
+            可以使用margin-left: -1px;实现1+1=1 */
+            margin-left: -1px;
+
+            position: relative;
+        }
+
+        /* ul li:hover {
+             如果盒子没有加定位, 我们可以采用相对定位解决, 因为定位能压住其他的标准流 
+        border: 1px solid orangered;
+        position: relative;
+        }
+
+        | */
+        ul li:hover {
+            /* 如果盒子有定位, 我们可以采用z-index提高层级 */
+            border: 1px solid blue;
+            z-index: 999;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+
+</html>

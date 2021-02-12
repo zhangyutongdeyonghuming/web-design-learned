@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 0;
+            height: 0;
+            /* 增大top的边框值获得直角三角形 */
+            border-top: 100px solid transparent;
+            /* 下边框取消, 获得上半部分 */
+            border-bottom: 0 solid transparent;
+            border-left: 50px solid transparent;
+            border-right: 50px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box"></div>
+</body>
+
+</html>
