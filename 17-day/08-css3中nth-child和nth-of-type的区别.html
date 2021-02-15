@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        /* 这样是可以选择到光头强的 */
+        section :nth-child(1) {
+            background-color: red;
+        }
+
+        /* 此时没有任何变化, 因为不存在第一个子元素是div */
+        section div:nth-child(1) {
+            background-color: pink;
+        }
+
+        /* 如果要选择, 可以使用nth-of-type */
+        section div:nth-of-type(1) {
+            background-color: skyblue;
+        }
+
+        /* 在不指定元素E时, 相当于nth-child */
+        section :nth-of-type(1) {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <p>光头强</p>
+        <div>熊大</div>
+        <div>熊二</div>
+    </section>
+
+</body>
+
+</html>

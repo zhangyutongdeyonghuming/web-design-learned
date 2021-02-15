@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+
+        header {
+            height: 20px;
+            background-color: #000;
+        }
+
+        nav {
+            height: 30px;
+            background-color: #555;
+        }
+
+        article {
+            position: relative;
+            float: left;
+            width: 50%;
+            height: 500px;
+            background-color: blue;
+        }
+
+        aside {
+            float: right;
+            width: 50%;
+            height: 500px;
+            background-color: orange;
+        }
+
+        section {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 90px;
+            height: 60px;
+            background-color: #fff;
+            color: #000;
+        }
+
+        footer {
+            height: 20px;
+            background-color: #000;
+        }
+
+        /* 清除浮动, 伪元素 */
+        .clearfix:after {
+            visibility: hidden;
+            clear: both;
+            display: block;
+            content: ".";
+            height: 0
+        }
+
+        .clearfix {
+            *zoom: 1
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 注意点:
+            1.这种语义化标准主要是针对搜索引擎的;
+            2.这些新标签页面中可以使用多次;
+            3.在IE9, 需要把这些元素转换为块级元素;
+            4.其实我们移动端更喜欢使用这些标签;
+    
+    -->
+    <header>头部</header>
+    <nav>导航栏</nav>
+    <div class="clearfix">
+        <article>
+            <span>内容栏</span>
+            <section>区域内容块</section>
+        </article>
+        <aside>侧边栏</aside>
+    </div>
+
+    <footer>底部栏</footer>
+</body>
+
+</html>
