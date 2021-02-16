@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .tudou {
+        .video {
             width: 430px;
             height: 240px;
             position: relative;
+
         }
 
         img {
@@ -17,7 +18,9 @@
             height: 100%;
         }
 
-        .mask {
+        /* 原遮罩层代码实现, 不用再新增标签 */
+        .video:hover::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
@@ -27,25 +30,13 @@
             background-image: url(../resources/images/arr.png);
             background-repeat: no-repeat;
             background-position: center center;
-            display: none;
-        }
-
-        /* 当鼠标经过父盒子时, 遮罩层的样式 */
-        .tudou:hover .mask {
-            display: block;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="tudou">
-        <div class="mask"></div>
-        <img src="../resources/images/tudou.jpg" alt="">
-    </div>
-
-    <div class="tudou">
-        <div class="mask"></div>
+    <div class="video">
         <img src="../resources/images/tudou.jpg" alt="">
     </div>
 </body>

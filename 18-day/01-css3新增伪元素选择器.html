@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: "iconfont";
+            src: url('font/iconfont.eot?t=1613451006083');
+            /* IE9 */
+            src: url('font/iconfont.eot?t=1613451006083#iefix') format('embedded-opentype'),
+                /* IE6-IE8 */
+                url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAKMAAsAAAAABkAAAAJCAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCCcApIYAE2AiQDCAsGAAQgBYRtBzQbigXIDiUFg4iAIQMARDx8v/Y7d/dhKlE0iyYynpn+Gwli00qIdC1h/2+t/TvMQp2KrUXUk9a1+zM3tzL7Zj/ujZLMMiESIoQGjYpP3Dv9E+iDjHpAOe5FY02a1AXUxYEU0N4YRVYkkTeMXeASHhOo1q9LYW9ibhHqJdaqQNxL4UN9LiRJLFsplNccTOJZmcrsMfvEU/j9+Lcc9WTKclbd4eV4CYa+2+y8fL/Yd+ETwgR0vAw5ZoFEnNam9lUJxlWpTlUbBvuqDr7bisJ3ir3aBPvrrMpa0Avl96RwlbeazeC2RmoGukZNIJq3bvbbseRt/7jqFPcHHfzusq0lLg+JTStf9P72Pry9BT8m3t51LwwBFKV8omoPCgg+5kav3ba1v8qaBL6O1D8NFKWknwdU7sMd/AtFz66kqyxHllRFbX+m+RwN1apRwL5m32NbTpwLldpGeCr0pchVGiUTO4syNVZRrtImqs2YPF6jhVYlUhWmnQCERs/I1HtBrtEnmdgvlGn3g3KNUYVq59FyYY3xkI27Gn3CEgs2mAxVyh0XNUbV8yhWYl9nVSG/jDqXUWYbVjE7iSnqObbkq8Ih4oxrlbAJ8BzGsWKZVhUMySgTZT2myeveZIQqgUa7NOQjqIQJbGCkkJLi/mDSWPr8PCSsiPl0S0dNdhnScnJ8xmawepCT+rRXx728klslOAjhGE5TEswEmIdiMYXJ6udVoBAxlEckMj1MuxfvqzfWNyZfdwiqWZYs7Em56lvpp6RWNhwbAA==') format('woff2'),
+                url('font/iconfont.woff?t=1613451006083') format('woff'),
+                url('font/iconfont.ttf?t=1613451006083') format('truetype'),
+                /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+                url('font/iconfont.svg?t=1613451006083#iconfont') format('svg');
+            /* iOS 4.1- */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 12px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .sidebar {
+            width: 235px;
+            height: 461px;
+            background-color: #8b8b8f;
+            margin: 0 auto;
+            padding-top: 20px;
+
+        }
+
+        .sidebar ul li:hover {
+            background-color: #ff6700;
+        }
+
+        .sidebar ul li a {
+            display: block;
+            height: 42px;
+            width: 205px;
+            line-height: 42px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .sidebar ul li a::after {
+            position: absolute;
+            content: '\e715';
+            right: 20px;
+            font-family: "iconfont";
+            font-weight: 700;
+        }
+
+        .iconfont {
+            font-family: "iconfont" !important;
+            font-size: 16px;
+            font-style: normal;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-stroke-width: 0.2px;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* 清除浮动, 伪元素 */
+        .clearfix:after {
+            visibility: hidden;
+            clear: both;
+            display: block;
+            content: ".";
+            height: 0
+        }
+
+        .clearfix {
+            *zoom: 1
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 伪元素选择器可以帮助我们利用CSS创建新标签元素, 而不需要HTML标签, 从而简化HTML结构. -->
+    <!-- 
+        特性:
+            1.before和after创建一个元素, 但是属于行内元素;
+            2.新创建的这个元素在文档树中是找不到的, 所以我们称之为伪元素;
+            3.语法element::after{}/element::before{};
+            4.before/after必须有content属性;
+            5.before是在父元素内容的前面创建元素, after是在后面;
+            6.伪元素选择器与标签选择器一样权重为1
+
+
+     -->
+    <!-- 小米侧边栏 -->
+    <div class="sidebar clearfix">
+        <ul>
+            <li><a href="#">手机 电话卡</a></li>
+            <li><a href="#">电视 盒子</a></li>
+            <li><a href="#">笔记本 平板 </a></li>
+            <li><a href="#">家电 插线板</a></li>
+            <li><a href="#">出行 穿戴</a></li>
+            <li><a href="#">智能 路由器</a></li>
+            <li><a href="#">电源 配饰</a></li>
+            <li><a href="#">健康 儿童</a></li>
+            <li><a href="#">耳机 音响</a></li>
+            <li><a href="#">生活 箱包</a></li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

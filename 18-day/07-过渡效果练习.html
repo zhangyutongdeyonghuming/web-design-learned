@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>进度条 和 小米logo</title>
+    <style>
+        .bar {
+            width: 150px;
+            height: 20px;
+            border: 1px solid red;
+            border-radius: 10px;
+        }
+
+        .bar-in {
+            width: 50%;
+            height: 100%;
+            border-radius: 10px;
+            background-color: red;
+            transition: all .7s;
+        }
+
+        .bar:hover .bar-in {
+            width: 100%;
+        }
+
+        .mi-logo {
+            display: inline-block;
+            width: 55px;
+            height: 55px;
+            background-color: orangered;
+            position: relative;
+        }
+
+        .mi-logo:before {
+            /* 因为默认是行内元素不能指定宽高, 所以转为行内块 */
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            content: '';
+            background-image: url(../resources/images/mi-logo.png);
+            background-position: center center;
+            background-repeat: no-repeat;
+            transition: all .6s;
+        }
+
+        .mi-logo:after {
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            left: -55px;
+            width: 100%;
+            height: 100%;
+            content: '';
+            background-image: url(../resources/images/mi-home.png);
+            background-position: center center;
+            background-repeat: no-repeat;
+            transition: all .4s;
+        }
+
+        .mi-logo:hover::after {
+            margin-left: 55px;
+        }
+
+        .mi-logo:hover::before {
+            margin-left: 55px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="bar">
+        <div class="bar-in"></div>
+    </div>
+    <hr>
+    <a href="#" class="mi-logo"></a>
+</body>
+
+</html>

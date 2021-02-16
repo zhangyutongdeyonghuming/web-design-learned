@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div .first {
+            float: left;
+            height: 600px;
+            width: 600px;
+            background-color: #111;
+        }
+
+        div .second {
+            float: left;
+            height: 400px;
+            width: 400px;
+            background-color: #111;
+        }
+
+        .content {
+            height: 200px;
+            background-color: pink;
+        }
+
+        .clearfix:after {
+            /* 伪元素必须得有content */
+            content: '';
+            /* 伪元素插入的元素必须是块级, 额外标签法插入的是块级盒子 */
+            display: block;
+            /* 清除浮动核心 */
+            clear: both;
+            /* 隐藏元素 */
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 在父盒子不指定高度时, 不清除浮动带来的影响是父盒子不占有位置, 下层盒子向上跑 -->
+    <div class="clearfix">
+        <div class="first"></div>
+        <div class="second"></div>
+    </div>
+    <div class="content"></div>
+</body>
+
+</html>

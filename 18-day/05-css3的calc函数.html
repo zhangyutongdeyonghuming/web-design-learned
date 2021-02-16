@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parent {
+            width: 600px;
+            height: 600px;
+            background-color: #111;
+        }
+
+        .son {
+            width: calc(100% - 70px);
+            height: calc(100% - 70px);
+            background-color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 需求: 让子盒子永远比父盒子小70px -->
+    <div class="parent">
+        <div class="son"></div>
+    </div>
+</body>
+
+</html>

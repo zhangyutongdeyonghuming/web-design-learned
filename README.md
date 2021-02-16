@@ -2252,7 +2252,7 @@ a {
             width: 300px;
             background-color: gray;
             /* 设置图片背景 , 默认none*/
-            background-image: url(../resources/logo.png);
+            background-image: url(../resources/images/logo.png);
             /* 设置背景不平铺 */
             background-repeat: no-repeat;
             /* 设置方位,如果是名词则没有顺序 */
@@ -2286,7 +2286,7 @@ a {
             height: 161px;
             background-color: gray;
             background-repeat: no-repeat;
-            background-image: url(../resources/logo.png);
+            background-image: url(../resources/images/logo.png);
             /* 可以指定固定的数值加单位来指定偏移量,顺序是先x轴后y轴,如果不指定第二个则默认垂直居中 */
             background-position: 50px;
         }
@@ -2314,7 +2314,7 @@ a {
     <title>Document</title>
     <style>
         body {
-            background-image: url(../resources/725341110883827.jpg);
+            background-image: url(../resources/images/725341110883827.jpg);
             /* 也可以使用混合单位,也是先x,后y */
             background-position: center 40px;
         }
@@ -2345,7 +2345,7 @@ a {
     <title>Document</title>
     <style>
         body {
-            background-image: url(../resources/725341110883827.jpg);
+            background-image: url(../resources/images/725341110883827.jpg);
             background-position: center 40px;
             background-repeat: no-repeat;
             /* 固定背景图片, 不随下拉而滚动, 默认是scroll(滚动) */
@@ -2411,14 +2411,14 @@ a {
     <title>Document</title>
     <style>
         body {
-            /* background-image: url(../resources/725341110883827.jpg); */
+            /* background-image: url(../resources/images/725341110883827.jpg); */
             /* background-position: center 40px; */
             /* background-repeat: no-repeat; */
             /* 固定背景图片, 不随下拉而滚动, 默认是scroll(滚动) */
             /* background-attachment: fixed; */
 
             /* 简化代码 */
-            background: url(../resources/725341110883827.jpg) no-repeat fixed center 40px;
+            background: url(../resources/images/725341110883827.jpg) no-repeat fixed center 40px;
         }
 
         p {
@@ -3237,7 +3237,7 @@ body {
 
 <body>
     <div class="box">
-        <img src="../resources/img.jpg" alt="">
+        <img src="../resources/images/img.jpg" alt="">
         <p class="review">
             <a href="#">快递牛, 整体不错蓝牙可以说秒连.红米给力</a>
         </p>
@@ -3849,7 +3849,7 @@ body {
 </head>
 
 <body>
-    <img class="pic" src="../resources/r_dj.png" alt="">
+    <img class="pic" src="../resources/images/r_dj.png" alt="">
     <!-- 图片会压住文字, 说明图片设置绝对定位后不占位置 -->
     <p>请尽情吩咐主人,妲己</p>
     <p>请尽情吩咐主人,妲己</p>
@@ -4172,7 +4172,7 @@ body {
 <body>
     <div class="box">
         <!-- 广告图 -->
-        <img src="../resources/tb.png" alt="">
+        <img src="../resources/images/tb.png" alt="">
         <!-- 左侧按钮 -->
         <a href="#" class="prev">
             &lt;
@@ -4302,7 +4302,7 @@ body {
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, .4);
-            background-image: url(../resources/arr.png);
+            background-image: url(../resources/images/arr.png);
             background-repeat: no-repeat;
             background-position: center center;
             display: none;
@@ -4319,12 +4319,12 @@ body {
 
     <div class="tudou">
         <div class="mask"></div>
-        <img src="../resources/tudou.jpg" alt="">
+        <img src="../resources/images/tudou.jpg" alt="">
     </div>
 
     <div class="tudou">
         <div class="mask"></div>
-        <img src="../resources/tudou.jpg" alt="">
+        <img src="../resources/images/tudou.jpg" alt="">
     </div>
 </body>
 
