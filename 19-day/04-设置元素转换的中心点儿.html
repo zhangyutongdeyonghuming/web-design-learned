@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 200px auto;
+            transition: all .5s ease;
+            /* 使用transform-origin定义中心点, 可以使用像素定位, 或者方位名词, 或者百分比, 默认是50% 50% 即center center */
+            /* transform-origin: 40px 50px; */
+            /* transform-origin: left bottom; */
+            transform-origin: 50% 30%;
+        }
+
+        .box:hover {
+            transform: rotate(360deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+
+</html>

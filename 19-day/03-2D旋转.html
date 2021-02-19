@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+            border: 3px solid pink;
+            box-sizing: content-box;
+            transition: all .6s ease;
+        }
+
+        .img:hover img {
+            /* 2D旋转, transform: rotate(90deg);
+                1.rotate里面跟度数,单位是deg,比如rotate(90deg);
+                2.角度为正时,顺时针,负时,逆时针;
+                3.默认旋转中心点事元素的中心点
+             */
+            transform: rotate(360deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="img"><img src="../resources/images/pic.jpg" alt=""></div>
+</body>
+
+</html>

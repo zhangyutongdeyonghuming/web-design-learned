@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            /* 移动位置的办法:1.定位;2.盒子外边距margin;3.2D转换transform */
+            width: 400px;
+            height: 400px;
+            background-color: #111;
+        }
+
+        .box:hover {
+            transform: translate(100px, 100px);
+        }
+
+        .img {
+            float: left;
+            transition: all .2s ease;
+        }
+
+        .img:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 语法 transform: translate(x,y);
+            1.定义2D转换中的移动, 沿着x/y轴移动元素的位置;
+            2.不会影响到其他元素的位置;
+            3.translate中的百分比单位是相对于自身元素的translate(50%,50%);
+            4.对于行内标签没效果
+    -->
+    <!-- <div class="box"></div> -->
+
+    <div class="img">
+        <img src="../resources/images/77d8653d19aef12b.jpg!cc_290x370.webp" alt="">
+    </div>
+</body>
+
+</html>

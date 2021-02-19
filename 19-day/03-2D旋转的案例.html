@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .search {
+            width: 300px;
+            height: 30px;
+            border: 1px solid #000;
+            position: relative;
+        }
+
+
+        .search::after {
+            width: 15px;
+            height: 15px;
+            content: "";
+            position: absolute;
+            top: 3px;
+            right: 7px;
+            border-right: 2px solid gray;
+            border-bottom: 2px solid gray;
+            transform: rotate(45deg);
+            transition: all .3s ease;
+        }
+
+        .search:hover::after {
+            transform: rotate(225deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="search">
+    </div>
+</body>
+
+</html>
