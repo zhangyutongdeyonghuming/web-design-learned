@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes move {
+            0% {
+                transform: translate(0);
+            }
+
+            100% {
+                transform: translateX(1000px);
+            }
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            /* 动画名,必须 */
+            animation-name: move;
+            /* 持续时间, 默认0ms, 必须 */
+            animation-duration: 3s;
+            /* 动画速度曲线, 默认ease */
+            /* animation-timing-function: ease-in-out; */
+            /* 规定什么时候开始 */
+            /* animation-delay: 0s; */
+            /* 规定播放次数 */
+            /* animation-iteration-count: infinite; */
+            /* 是否在下一周期逆向播放, 默认是normal, 如果想的话使用alternate */
+            /* animation-direction: alternate; */
+            /* 动画结束是否回到原位, 默认返回backward */
+            animation-fill-mode: forwards;
+        }
+
+        div:hover {
+            /* 改变动画状态 */
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+
+</html>
