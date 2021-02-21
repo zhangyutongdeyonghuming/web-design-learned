@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        section {
+            display: flex;
+            width: 100%;
+            height: 50px;
+            background-color: gray;
+        }
+
+        section :nth-child(1) {
+            width: 100px;
+            height: 100%;
+            background-color: #111;
+        }
+
+        section :nth-child(2) {
+            flex: 1;
+            background-color: #09f;
+        }
+
+        section :nth-child(3) {
+            width: 100px;
+            height: 100%;
+            background-color: #111;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+</body>
+
+</html>

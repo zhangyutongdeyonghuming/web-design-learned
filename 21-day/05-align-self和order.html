@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            display: flex;
+            width: 1200px;
+            height: 500px;
+            background-color: gray;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        div span {
+            flex: 1;
+            height: 190px;
+            background-color: #09f;
+
+        }
+
+        div span:nth-of-type(2) {
+            /* 可以单独调整单个元素盒子在侧轴的位置 */
+            align-self: flex-start;
+            /* 可以控制单个盒子的排列位置 */
+            order: -1;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+    </div>
+</body>
+
+</html>
