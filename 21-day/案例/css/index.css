@@ -1,0 +1,236 @@
+body {
+    max-width: 540px;
+    min-width: 320px;
+    margin: 0 auto;
+    font: normal 14px/1.5 Tahoma, "Lucida Grande", Verdana, "Microsoft Yahei", STXihei, hei;
+    color: #000;
+    background: #f2f2f2;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #222;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+
+/* 搜索模块 */
+
+.search-index {
+    display: flex;
+    /* 固定定位跟父级没有关系 它以屏幕为准 */
+    position: fixed;
+    top: 0;
+    left: 50%;
+    /* 固定的盒子应该有宽度 */
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 100%;
+    min-width: 320px;
+    max-width: 540px;
+    height: 44px;
+    /* background-color: pink; */
+    background-color: #F6F6F6;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.search {
+    position: relative;
+    height: 26px;
+    line-height: 24px;
+    border: 1px solid #ccc;
+    flex: 1;
+    font-size: 12px;
+    color: #666;
+    margin: 7px 10px;
+    padding-left: 25px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+}
+
+.search::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 15px;
+    height: 15px;
+    background: url(../images/sprite.png) no-repeat -59px -279px;
+    background-size: 104px auto;
+}
+
+.user {
+    width: 44px;
+    height: 44px;
+    /* background-color: purple; */
+    font-size: 12px;
+    text-align: center;
+    color: #2eaae0;
+}
+
+.user::before {
+    content: "";
+    display: block;
+    width: 23px;
+    height: 23px;
+    background: url(../images/sprite.png) no-repeat -59px -194px;
+    background-size: 104px auto;
+    margin: 4px auto -2px;
+}
+
+/* focus */
+.focus {
+    padding-top: 44px;
+}
+.focus img{
+    width: 100%;
+}
+
+/* local-nav */
+.local-nav {
+    display: flex;
+    height: 66px;
+    background-color: #fff;
+    border-radius: 10px;
+    justify-content:space-around;
+}
+
+.local-nav a::before {
+    content: '';
+    display: block;
+    height: 32px;
+    width: 32px;
+    background : url(../images/localnav_bg.png) no-repeat 0 0;
+    background-size: 32px auto;
+}
+
+.local-nav a {
+    margin-top: 7px;
+    display: flex;
+    flex-direction: column;
+    /* 侧轴居中对齐 因为是单行 */
+    align-items: center;
+    font-size: 12px;
+}
+
+.local-nav li:nth-of-type(2) a::before {
+    background-position: 0 -32px;
+}
+
+.local-nav li:nth-of-type(3) a::before {
+    background-position: 0 -64px;
+}
+
+.local-nav li:nth-of-type(4) a::before {
+    background-position: 0 -96px;
+}
+
+.local-nav li:nth-of-type(5) a::before {
+    background-position: 0 -128px;
+}
+
+/* nav */
+
+nav {
+    margin: 5px 3px 0;
+    height: 270px;
+    border-radius: 7px;
+    display: flex;
+    flex-flow: column;
+}
+
+nav a {
+    color: #fff;
+    height: 100%;
+}
+
+.hotel,
+.flight,
+.travel {
+    flex: 1;
+    display: flex;
+    background-image: linear-gradient(to right,#fa5a56, #fa9a4e);
+
+}
+
+.hotel,
+.flight {
+    border-bottom: 3px solid #fff;
+}
+
+
+nav div div {
+    flex: 1;
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+    line-height: 44px;
+}
+
+nav .left-need-border {
+    border-left: 1px solid #fff;
+}
+
+nav .bottom-need-border {
+    border-bottom: 1px solid #fff;
+}
+
+.hotel .left {
+    background: url(../images/hotel.png) no-repeat bottom center;
+    background-size: 121px auto;
+}
+
+nav .hotel {
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+
+nav .travel {
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+/* sub-nav */
+
+.sub-nav {
+    display: flex;
+    height: 120px;
+    margin: 5px 3px 0;
+    border-radius: 7px;
+    flex-flow: row wrap;
+    background-color: #ffffff;
+    justify-content: space-around;
+    padding-top: 8px;
+}
+
+.sub-nav li {
+    flex: 20%;
+}
+
+.sub-nav li a {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.sub-nav li a::before {
+    content:'';
+    display: block;
+    width: 28px;
+    height: 28px;
+    background: url(../images/subnav-bg.png) no-repeat;
+    background-size: 28px auto;
+}
+
