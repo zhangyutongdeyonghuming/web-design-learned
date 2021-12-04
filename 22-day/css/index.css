@@ -1,0 +1,48 @@
+body {
+    color: #000;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-text-size-adjust: none;
+    -moz-user-select: none;
+    max-width: 540px;
+    margin: 0 auto;
+    background: #f4f4f4;
+}
+
+/* 头部 */
+.header {
+    height: 54px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: #fff;
+
+}
+
+/* 头部 搜索框 */
+.header .search-box {
+    height: 30px;
+    border: 1.8px solid #0086f6;
+    border-radius: 25px;
+    display: flex;
+    margin: 0 12px;
+}
+
+.header .search-box .icon-search {
+    width: 20px;
+    height: 20px;
+    margin: 5px 12px;
+}
+
+.header .search-box .search-text {
+    margin: 6px 0;
+    font-size: 15px;
+    color: #989;
+}
+
+/* banner */
+.banner {
+    height: 184px;
+    background: #fff;
+
+}
