@@ -44,5 +44,29 @@ body {
 .banner {
     height: 184px;
     background: #fff;
+    display: flex;
+}
 
+.banner .container {
+    display: flex;
+    flex: 1;
+    margin: 0 10px 10px;
+}
+
+/* 图 */
+.banner .nav {
+    flex: 1;
+    background-color: #000;
+    border: 1px;
+    box-sizing: border-box;
+    margin-left: 1px;
+}
+
+.banner .nav:nth-of-type(1) {
+    border-radius: 10px 0 0 10px;
+    margin-left: 0;
+}
+
+.banner .nav:nth-of-type(5) {
+    border-radius: 0 10px 10px 0;
 }
